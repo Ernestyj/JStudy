@@ -13,7 +13,8 @@ public class AppTest {
         Constructors.main(args);
         Fields.main(args);
         Methods.main(args);
-
+        Arrays.main(args);
+        SmallFramework.main(args);
 
         App.main(args);
     }

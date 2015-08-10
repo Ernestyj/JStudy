@@ -5,6 +5,6 @@ package eugene.reflect;
  */
 public class App {
     public static void main(String[] args){
-
+        System.out.println("args: " + args[0] + ", " + args[1]);
     }
 }
