@@ -1,9 +1,4 @@
-package eugene;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
+package eugene.generic;
 
 /**
  * Created by Jian on 2015/7/28.
