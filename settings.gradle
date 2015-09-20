@@ -1,2 +1,3 @@
 rootProject.name = 'JStudy'
+include 'SparkJavaStudy'
 
