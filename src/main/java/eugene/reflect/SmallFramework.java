@@ -1,11 +1,9 @@
 package eugene.reflect;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Properties;
 
 /**
@@ -18,7 +16,7 @@ public class SmallFramework {
 //            InputStream ips = new FileInputStream("configTest.properties");//这里的相对路径，是相对工程根目录
             //2. 另一种(更常用)方法是使用类加载器（直接使用类加载器时，不能以/打头）
 //            InputStream ips = SmallFramework.class.getClassLoader()
-//                    .getResourceAsStream("eugene/reflect/configTest.properties");//这里的相对路径，是相对class根目录
+//                    .getResourceAsStream("eugene/eugene.reflect/configTest.properties");//这里的相对路径，是相对class根目录
             //3. 再另一种方法，没有显式使用getClassLoader()，但实际上也是用了类加载器（可以/打头，即可以用class下的绝对路径）
             InputStream ips = SmallFramework.class
                     .getResourceAsStream("configTest.properties");//这里的相对路径，是相对SmallFramework.class所在目录

@@ -16,7 +16,7 @@ public class Methods {
 //            System.out.println();
 
             //main方法反射调用（对接收数组参数的成员方法进行反射）
-            Method mainMethod = Class.forName("eugene.reflect.App").getMethod("main", String[].class);
+            Method mainMethod = Class.forName("eugene.eugene.reflect.App").getMethod("main", String[].class);
             //如果传递给Method对象的invoke()方法的第一个参数为null，说明该Method对象对应的是一个静态方法
             //javac只把它当作jdk1.4的语法进行理解，而不把它当作jdk1.5的语法解释，传入的String数组会被解包成一个一个元素，因此会出现参数类型不对的问题
 //            mainMethod.invoke(null, new String[]{"11", "22"});//这里是错误的调用方式，IllegalArgumentException
