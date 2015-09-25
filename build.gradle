@@ -5,8 +5,10 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.5
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        maven{ url 'http://maven.oschina.net/content/groups/public/'}
+    }
 }
 
 dependencies {
