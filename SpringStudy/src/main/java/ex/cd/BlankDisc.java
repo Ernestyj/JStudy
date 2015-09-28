@@ -1,10 +1,13 @@
 package ex.cd;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
  * Created by Jian on 2015/9/28.
  */
+@Component
 public class BlankDisc implements CompactDisc {
 
     private String title;
