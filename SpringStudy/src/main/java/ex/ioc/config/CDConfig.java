@@ -1,7 +1,7 @@
-package ex.cd.config;
+package ex.ioc.config;
 
-import ex.cd.CompactDisc;
-import ex.cd.SgtPeppers;
+import ex.ioc.CompactDisc;
+import ex.ioc.SgtPeppers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

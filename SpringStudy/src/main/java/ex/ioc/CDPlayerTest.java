@@ -1,6 +1,6 @@
-package ex.cd;
+package ex.ioc;
 
-import ex.cd.config.SoundSystemConfig;
+import ex.ioc.config.SoundSystemConfig;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.StandardOutputStreamLog;

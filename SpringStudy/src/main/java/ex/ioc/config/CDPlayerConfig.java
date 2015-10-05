@@ -1,9 +1,8 @@
-package ex.cd.config;
+package ex.ioc.config;
 
-import ex.cd.CDPlayer;
-import ex.cd.CompactDisc;
+import ex.ioc.CDPlayer;
+import ex.ioc.CompactDisc;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**

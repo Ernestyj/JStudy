@@ -1,4 +1,4 @@
-package ex.concert;
+package ex.aop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

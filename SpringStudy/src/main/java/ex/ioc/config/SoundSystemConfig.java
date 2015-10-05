@@ -1,4 +1,4 @@
-package ex.cd.config;
+package ex.ioc.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

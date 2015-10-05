@@ -1,4 +1,4 @@
-package ex.cd;
+package ex.ioc;
 
 import javax.inject.Inject;
 import javax.inject.Named;

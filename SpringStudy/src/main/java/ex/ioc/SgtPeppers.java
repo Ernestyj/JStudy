@@ -1,4 +1,4 @@
-package ex.cd;
+package ex.ioc;
 
 import org.springframework.stereotype.Component;
 
