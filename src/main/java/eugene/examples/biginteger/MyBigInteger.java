@@ -61,7 +61,7 @@ public final class MyBigInteger {
     }
 
     public MyBigInteger multiply(MyBigInteger another){
-        if (this.valWithoutSign.equals("0") || another.valWithoutSign.equals("0"))
+        if ("0".equals(this.valWithoutSign) || "0".equals(another.valWithoutSign))
             return MyBigInteger.newInstance("0");
         if(this.sign + another.sign == 1) { //有一个操作数为负
             return positiveMultiply(this.getValWithoutSign(), another.getValWithoutSign(), true);
@@ -71,7 +71,7 @@ public final class MyBigInteger {
     }
 
     public MyBigInteger divide(MyBigInteger another){
-        if(another.valWithoutSign.equals("0")) throw new ArithmeticException();
+        if("0".equals(another.valWithoutSign)) throw new ArithmeticException();
         if(this.sign + another.sign == 1){ //有一个操作数为负
             return positiveDivide(this.getValWithoutSign(), another.getValWithoutSign(), true);
         }else{
@@ -80,7 +80,7 @@ public final class MyBigInteger {
     }
 
     public MyBigInteger remainder(MyBigInteger another){
-        if(another.valWithoutSign.equals("0")) throw new ArithmeticException();
+        if("0".equals(another.valWithoutSign)) throw new ArithmeticException();
         return positiveRemainder(this.getValWithoutSign(), another.getValWithoutSign());
     }
 
@@ -234,7 +234,7 @@ public final class MyBigInteger {
     }
 
     private String trimZeroPopulatedString(String valString){
-        if (valString.equals("0")) return "0";
+        if ("0".equals(valString)) return "0";
         int i = 0;
         for ( ; i < valString.length() && valString.charAt(i) == '0'; i++);
         String result = valString.substring(i);
