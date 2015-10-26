@@ -1,5 +1,6 @@
 package eugene;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -11,7 +12,19 @@ public class App {
         System.out.println('A'+'B');
         System.out.println(10 | 7);
 
-        System.out.printf("%x%n", new Integer(0xcafebabe));
-        
+        mergeTest();
+    }
+
+    private static void mergeTest() {
+        try {
+            FileReader aFileReader = new FileReader(new File("src/main/resources/a.txt"));
+            FileReader bFileReader = new FileReader(new File("src/main/resources/b.txt"));
+            FileWriter cFileWriter = new FileWriter(new File("src/main/resources/c.txt"));
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
