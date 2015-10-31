@@ -1,6 +1,7 @@
-package eugene;
+package interview;
 
-import java.io.*;
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Jian on 2015/7/28.
@@ -18,6 +19,9 @@ public class App {
     }
 
     private static void test() throws IOException {
+        int[] nums = {1, 0, -1, 0, -2, 2};
+        Arrays.sort(nums);
+        for (int i : nums) System.out.print(i + " ");
     }
 
     private static void test(final String inputString) throws IOException {

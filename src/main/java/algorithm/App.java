@@ -1,6 +1,6 @@
-package eugene;
+package algorithm;
 
-import java.io.*;
+import java.io.IOException;
 
 /**
  * Created by Jian on 2015/7/28.
