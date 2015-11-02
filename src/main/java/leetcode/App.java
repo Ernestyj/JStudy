@@ -1,4 +1,4 @@
-package interview;
+package leetcode;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -20,8 +20,12 @@ public class App {
 
     private static void test() throws IOException {
         int[] nums = {1, 0, -1, 0, -2, 2};
-        Arrays.sort(nums);
+        int[] sortedNums = nums.clone();
+
+        Arrays.sort(sortedNums);
         for (int i : nums) System.out.print(i + " ");
+        System.out.println();
+        for (int i : sortedNums) System.out.print(i + " ");
     }
 
     private static void test(final String inputString) throws IOException {
