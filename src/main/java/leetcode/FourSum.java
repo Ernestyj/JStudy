@@ -47,61 +47,61 @@ public class FourSum {
      * @param target
      * @return
      */
-    public List<List<Integer>> fourSumBacktrack(int[] nums, int target) {
-        Arrays.sort(nums);
-
-        maxDepth = nums.length;
-        numbers = new int[maxDepth + 1];
-        for (int i = 1; i < numbers.length; i++) numbers[i] = nums[i - 1];
-        tempTakes = new Integer[maxDepth + 1];
-        for (int i = 1; i < tempTakes.length; i++) tempTakes[i] = 0;
-        takesList = new ArrayList<>();
-
-        backtrack(1, 0, target);
-
-        System.out.println("************************");
-        System.out.println("item" + "\t" + "value" + "\t" + "take");
-        for (Integer[] ints : takesList){
-            for (int n = 1; n < maxDepth + 1; n++) {
-                System.out.println(n + "\t" + numbers[n] + "\t" + ints[n]);
-            }
-            System.out.println("----------------");
-        }
-
-        List<List<Integer>> answers = new ArrayList<>();
-        return answers;
-    }
-    private void backtrack(int i, int sum, int target){
-        if (i > maxDepth){
-            if (sum == target && getTakeCount(tempTakes) == 4){
-                takesList.add(tempTakes);
-                //重新分配
-                tempTakes = new Integer[maxDepth + 1];
-                for (int x = 1; x < tempTakes.length; x++) tempTakes[x] = 0;
-            }
-        } else {
-            for (int isTake = 0; isTake <= 1; isTake++){
-                tempTakes[i] = isTake;
-                int tookCount = getTakeCount(tempTakes);
-                if (i < 4 ||
-                        tookCount < 4 ||
-                        sum + numbers[i] * isTake != target ||
-                        (maxDepth - i + 1 + tookCount) >= 4){
-                    sum += numbers[i] * isTake;
-                    backtrack(i + 1, sum, target);
-                    sum -= numbers[i] * isTake;
-                }
-            }
-        }
-
-    }
-    private int getTakeCount(Integer[] takes){
-        int count = 0;
-        for (int i = 1; i < takes.length; i++){
-            if (takes[i] == 1) count++;
-        }
-        return count;
-    }
+//    public List<List<Integer>> fourSumBacktrack(int[] nums, int target) {
+//        Arrays.sort(nums);
+//
+//        maxDepth = nums.length;
+//        numbers = new int[maxDepth + 1];
+//        for (int i = 1; i < numbers.length; i++) numbers[i] = nums[i - 1];
+//        tempTakes = new Integer[maxDepth + 1];
+//        for (int i = 1; i < tempTakes.length; i++) tempTakes[i] = 0;
+//        takesList = new ArrayList<>();
+//
+//        backtrack(1, 0, target);
+//
+//        System.out.println("************************");
+//        System.out.println("item" + "\t" + "value" + "\t" + "take");
+//        for (Integer[] ints : takesList){
+//            for (int n = 1; n < maxDepth + 1; n++) {
+//                System.out.println(n + "\t" + numbers[n] + "\t" + ints[n]);
+//            }
+//            System.out.println("----------------");
+//        }
+//
+//        List<List<Integer>> answers = new ArrayList<>();
+//        return answers;
+//    }
+//    private void backtrack(int i, int sum, int target){
+//        if (i > maxDepth){
+//            if (sum == target && getTakeCount(tempTakes) == 4){
+//                takesList.add(tempTakes);
+//                //重新分配
+//                tempTakes = new Integer[maxDepth + 1];
+//                for (int x = 1; x < tempTakes.length; x++) tempTakes[x] = 0;
+//            }
+//        } else {
+//            for (int isTake = 0; isTake <= 1; isTake++){
+//                tempTakes[i] = isTake;
+//                int tookCount = getTakeCount(tempTakes);
+//                if (i < 4 ||
+//                        tookCount < 4 ||
+//                        sum + numbers[i] * isTake != target ||
+//                        (maxDepth - i + 1 + tookCount) >= 4){
+//                    sum += numbers[i] * isTake;
+//                    backtrack(i + 1, sum, target);
+//                    sum -= numbers[i] * isTake;
+//                }
+//            }
+//        }
+//
+//    }
+//    private int getTakeCount(Integer[] takes){
+//        int count = 0;
+//        for (int i = 1; i < takes.length; i++){
+//            if (takes[i] == 1) count++;
+//        }
+//        return count;
+//    }
 
     /**
      * 时间复杂度 n^3 （nlogn + n^2 * n）
