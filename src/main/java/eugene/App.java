@@ -11,9 +11,11 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
+        int[] nums = {1, 0, -1, 0, -2, 2, 9};
         try {
             test();
-            test(10, 1, 8);
+            test(nums);
+            for (int n : nums) System.out.print(n + " ");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,12 +27,12 @@ public class App {
     }
 
 
-    private static void test(int age, int count, int target){
-        if (count >= target){
-            System.out.println(age);
-            return;
+    private static void test(int[] a){
+        for (int i = 0, j = a.length - 1; i < j; i++, j--){
+            int t = a[i];
+            a[i] = a[j];
+            a[j] = t;
         }
-        test(age += 2, ++count, target);
     }
 
 
