@@ -19,12 +19,14 @@ public class MergeKSortedLists {
 //        ListNode l22 = new ListNode(4);
 //        ListNode l23 = new ListNode(9);
 //        l21.next = l22; l22.next = l23; l23.next = null;
+//        ListNode l11 = null;
         ListNode l21 = null;
-        ListNode[] lists = new ListNode[1];
+        ListNode[] lists = new ListNode[0];
 //        lists[0] = l11;
-        lists[0] = l21;
+//        lists[1] = l21;
 
-        ListNode node = new MergeKSortedLists().mergeKLists2(lists);
+//        ListNode node = new MergeKSortedLists().mergeKLists2(lists);
+        ListNode node = new MergeKSortedLists().mergeKLists1(lists);
         while (node != null){
             System.out.print(node.val + " ");
             node = node.next;
@@ -40,7 +42,7 @@ public class MergeKSortedLists {
 
     private List<Integer> array = null;
     private List<Integer> mergedArray = new ArrayList<>();
-    public ListNode mergeKLists(ListNode[] lists) {
+    public ListNode mergeKLists(ListNode[] lists) { //利用JDK排序（偷懒算法)
         for (ListNode l : lists){
             if (l == null) continue;
             int i = 0;
@@ -64,7 +66,33 @@ public class MergeKSortedLists {
         return head;
     }
 
-    //TODO 算法测试超时
+
+    /**
+     * 二分法（分治法）
+     * http://blog.csdn.net/linhuanmars/article/details/19899259
+     *
+     * 时间复杂度：nklogk
+     * 分析：假设总共有k个list，每个list的最大长度是n，那么运行时间满足递推式T(k) = 2T(k/2)+O(n*k)。
+     * 根据主定理，可以算出算法的总复杂度是O(nklogk)
+     *
+     * @param lists
+     * @return
+     */
+    public ListNode mergeKLists1(ListNode[] lists) {
+        if (lists == null) return null;
+        return mergeSort(lists, 0, lists.length - 1);
+    }
+    private ListNode mergeSort(ListNode[] lists, int left, int right){
+        if (left < right){
+            int mid = (left + right) / 2;
+            return mergeTwoLists(mergeSort(lists, left, mid),
+                    mergeSort(lists, mid + 1, right));
+        }
+        return lists.length == 0 ? null : lists[left];  //TODO 注意new ListNode[0];时的边界条件
+    }
+
+
+    //TODO 算法测试超时 时间复杂度：C1*C2* ... *n
     public ListNode mergeKLists2(ListNode[] lists) {
         ListNode node = null;
         for (int i = 0; i < lists.length; i++){

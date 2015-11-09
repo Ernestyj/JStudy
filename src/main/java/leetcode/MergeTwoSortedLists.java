@@ -71,4 +71,8 @@ public class MergeTwoSortedLists {
         return mergedHead;
     }
 
+    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+        return null;
+    }
+
 }

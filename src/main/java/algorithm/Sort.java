@@ -8,10 +8,11 @@ public class Sort {
     public static void main(String[] args) {
 
         int[] nums = {48, 6, 57, 42, 60, 72, 83, 73, 88, 85};
-        new Sort().quickSort(nums);
+//        new Sort().quickSort(nums);
+        int[] result = new Sort().mergeSort(nums);
 
         System.out.println("*****RESULT*****");
-        for (int i : nums) System.out.print(i + " ");
+        for (int i : result) System.out.print(i + " ");
     }
 
     /**
@@ -65,6 +66,52 @@ public class Sort {
         nums[i] = nums[j];
         nums[j] = x;
     }
+
+    /**
+     * 分治模型在每一层递归上都有三个步骤：
+        分解（Divide)：将原问题分解成一系列子问题。
+        解决(Conquer)：递归的解各个子问题。若子问题足够小，则直接求解。
+        合并(Combine)：将子问题的结果合并成原问题的解。
+     *
+     * 基本思路就是将数组分成二组A、B，如果A、B内的数据都是有序的，那么就可以方便的将这二组数据进行排序。
+     * 可以将A，B组各自再分成二组，依次类推；
+     * 当分出来的小组只有一个数据时，可以认为这个小组组内已经达到了有序；（最底层排序）
+     * 然后再合并相邻的二个小组就可以了。
+     *
+     * 时间复杂度：nlogn
+     * 分析：设数列长为N，将数列分开成小数列一共要logN步，每步都是一个合并有序数列的过程，
+     * 时间复杂度可以记为O(N)，故一共为O(N*logN)。
+     *
+     * @param nums
+     * @return 排好序的数组
+     */
+    public int[] mergeSort(int[] nums){
+        int[] tempSorted = new int[nums.length];
+        mergeSort(nums, 0, nums.length - 1, tempSorted);
+        return tempSorted;
+    }
+    private void mergeSort(int[] unsorted, int left, int right, int[] tempSorted){
+        if (left < right){
+            int mid = (left + right) / 2;
+            mergeSort(unsorted, left, mid, tempSorted); //左边有序
+            mergeSort(unsorted, mid + 1, right, tempSorted);    //右边有序
+            merge(unsorted, left, mid, right, tempSorted);  //再将二个有序数列合并
+        }
+    }
+    private void merge(int[] origin, int left, int mid, int right, int[] tempSorted){
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+        while (i <= mid && j <= right){ //真正排序的地方
+            if (origin[i] < origin[j]) tempSorted[k++] = origin[i++];
+            else tempSorted[k++] = origin[j++];
+        }
+        while (i <= mid) tempSorted[k++] = origin[i++];
+        while (j <= right) tempSorted[k++] = origin[j++];
+        //更新origin数组
+        for (int x = 0; x < k; x++) origin[left + x] = tempSorted[x];
+    }
+
 
 
 
