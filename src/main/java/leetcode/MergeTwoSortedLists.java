@@ -22,7 +22,8 @@ public class MergeTwoSortedLists {
 //        l21.next = l22; l22.next = l23; l23.next = null;
         ListNode l21 = null;
 
-        ListNode node = new MergeTwoSortedLists().mergeTwoLists(l11, l21);
+//        ListNode node = new MergeTwoSortedLists().mergeTwoLists(l11, l21);
+        ListNode node = new MergeTwoSortedLists().mergeTwoLists1(l11, l21);
         while (node != null){
             System.out.print(node.val + " ");
             node = node.next;
@@ -71,8 +72,27 @@ public class MergeTwoSortedLists {
         return mergedHead;
     }
 
-    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-        return null;
+    /**
+     * 递归法
+     * 时间复杂度：与上述传统方法一样 ？？？
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
+        return merge(l1, l2);
+    }
+    private ListNode merge(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val < l2.val) {
+            l1.next = merge(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = merge(l2.next, l1);
+            return l2;
+        }
     }
 
 }

@@ -40,7 +40,7 @@ public class SwapNodesInPairs {
         ListNode pre = null;
         ListNode first = head;
         ListNode second = head.next;
-        if (second == null) return first;   //TODO 当只有一个元素时
+        if (second == null) return first;   //TODO 褰撳彧鏈変竴涓厓绱犳椂
         swap(pre, first, second);
         ListNode resultHead = second;
         pre = first;

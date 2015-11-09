@@ -96,7 +96,8 @@ public class ReverseNodesInKGroup {
 
 
     /**
-     * TODO 算法调试失败
+     * TODO 算法调试失败：写算法前再花一点时间想想有没有更简洁的方法，别急于下手
+     * TODO 抓住问题中的不变量，好好利用此不变量（ex. 逆转链表中，第一个肯定是last one）
      *
      * @param head
      * @param k

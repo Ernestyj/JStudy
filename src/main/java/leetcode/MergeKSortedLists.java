@@ -101,38 +101,15 @@ public class MergeKSortedLists {
         return node;
     }
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode node1 = l1;
-        ListNode node2 = l2;
-        ListNode mergedHead;
-        ListNode mergedNode = null;
-        if (l1 == null && l2 == null){  //TODO 易漏
-            return null;
-        } else if (l1 == null || (l2 != null && l1.val > l2.val)){  //TODO 易漏l2 != null
-            mergedNode = l2;
-            node2 = node2.next;
-        } else if (l2 == null || (l1 != null && l1.val <= l2.val)) {    //TODO 易漏l1 != null，不过此处省略也没错
-            mergedNode = l1;
-            node1 = node1.next;
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val < l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l2.next, l1);
+            return l2;
         }
-        mergedHead = mergedNode;
-        while (node2 != null){
-            if (node1 == null || node1.val > node2.val){
-                mergedNode.next = node2;
-                node2 = node2.next;
-            } else {
-                mergedNode.next = node1;
-                node1 = node1.next;
-            }
-            mergedNode = mergedNode.next;
-        }
-        while (node1 != null){
-            mergedNode.next = node1;
-            mergedNode = mergedNode.next;
-            node1 = node1.next;
-        }
-        mergedNode.next = null;
-
-        return mergedHead;
     }
 
 }
