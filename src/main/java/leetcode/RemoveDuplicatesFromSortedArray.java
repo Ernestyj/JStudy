@@ -29,7 +29,7 @@ public class RemoveDuplicatesFromSortedArray {
     /**
      * 用index存不同数字的个数，遍历数组判断当前值是否和前一个值不一样。
      如果不一样，就是一个新的值，更新数组并对index加1。
-
+     *
      * @param nums
      * @return
      */
