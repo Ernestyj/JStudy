@@ -2,6 +2,7 @@ package leetcode;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by Jian on 2015/7/28.
@@ -26,6 +27,22 @@ public class App {
     }
 
     private static void test(final String inputString) throws IOException {
+    }
+
+    private static class User{
+        private String name;
+
+        public User(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
 

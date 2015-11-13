@@ -3,7 +3,7 @@ package eugene.examples.biginteger;
 /**大整数的加减乘除求余运算（基于字符串），各算术操作均采用笔算的思路。
  * （注意：可以优化操作数为0或1时的运算）
  * 加法减法：竖式法；
- * 整除法：从最高位开始，不停进行减操作；
+ * 整除法：从最高位开始，不停进行减操作；TODO 存在bug
  * 乘法：用较小数的各个位乘以（累加）较大数，同时对高位补零，再求和；
  * 求余：整除法的余留值
  * Created by Jian Yang on 10/19/2015.
@@ -27,8 +27,8 @@ public final class MyBigInteger {
     }
 
     public static void main(String[] args){
-        MyBigInteger left = MyBigInteger.newInstance("9999999999999999999999999999");
-        MyBigInteger right = MyBigInteger.newInstance("-23");
+        MyBigInteger left = MyBigInteger.newInstance("10");
+        MyBigInteger right = MyBigInteger.newInstance("1");
         System.out.println(left.add(right));
         System.out.println(left.subtract(right));
         System.out.println(left.divide(right));
@@ -159,17 +159,17 @@ public final class MyBigInteger {
                 trimZeroPopulatedString(result.reverse().toString()));
     }
 
-    //两非零正数整除
+    //两非零正数整除 TODO 存在bug
     private MyBigInteger positiveDivide(final String left, final String right, final boolean isNegative){
         if (!isGreater(left, right)) return new MyBigInteger("0");
         else {
             StringBuilder result = new StringBuilder();
-            int indice = right.length();    //indice从高位往低位移
+            int indice = right.length();    //indice从左数高位往低位移
             String tempLeft = left.substring(0, indice);
             while (indice < left.length()){ //从left操作数最高位移到了最低位
                 //从最高位往低位移，直到tempLeft - right >= 0
                 while(!positiveSubtract(tempLeft, right).isPositive()){
-                    if (indice < left.length()) //一定要检查是否越界
+                    if (indice < left.length()) //TODO 一定要检查是否越界
                         tempLeft += left.charAt(indice);
                     indice++;
                 }
