@@ -12,7 +12,7 @@ public class Sort {
         int[] result = new Sort().mergeSort(nums);
 
         System.out.println("*****RESULT*****");
-        for (int i : result) System.out.print(i + " ");
+        for (int i : result) System.out.print(i + ", ");
     }
 
     /**
@@ -66,6 +66,7 @@ public class Sort {
         nums[i] = nums[j];
         nums[j] = x;
     }
+
 
     /**
      * 分治模型在每一层递归上都有三个步骤：
