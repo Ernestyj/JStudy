@@ -1,9 +1,8 @@
-package leetcode;
+package leetcode1_30;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * You are given a string, s, and a list of words,

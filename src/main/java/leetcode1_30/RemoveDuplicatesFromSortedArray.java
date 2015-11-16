@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode1_30;
 
 /**
  * Given a sorted array, remove the duplicates in place such that each element appear only once

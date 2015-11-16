@@ -1,8 +1,6 @@
-package leetcode;
+package leetcode1_30;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Given an array of integers, find two numbers such that they add up to a specific

@@ -1,8 +1,6 @@
-package leetcode;
+package leetcode1_30;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Given an array S of n integers, find three integers in S such that the sum is

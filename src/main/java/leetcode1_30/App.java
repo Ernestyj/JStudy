@@ -1,8 +1,7 @@
-package leetcode;
+package leetcode1_30;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * Created by Jian on 2015/7/28.

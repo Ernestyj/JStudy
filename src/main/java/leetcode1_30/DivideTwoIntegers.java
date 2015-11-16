@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode1_30;
 
 /**
  * Divide two integers without using multiplication, division and mod operator.

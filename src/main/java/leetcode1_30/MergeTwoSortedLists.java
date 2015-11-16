@@ -1,7 +1,4 @@
-package leetcode;
-
-import java.util.ArrayList;
-import java.util.List;
+package leetcode1_30;
 
 /**
  * Merge two sorted linked lists and return it as a new list.

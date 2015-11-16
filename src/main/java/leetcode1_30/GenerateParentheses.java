@@ -1,6 +1,4 @@
-package leetcode;
-
-import eugene.examples.generic.Stack;
+package leetcode1_30;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -11,11 +11,23 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        int[] nums = {1, 0, -1, 0, -2, 2, 9};
+
+        System.out.println();
+        int i = 1 + 4 + 16 + 64;
+        int j = 2 + 8 + 32 + 128;
+        System.out.println(Integer.toHexString(i));
+        System.out.println(Integer.toHexString(j));
+        System.out.println("i = " + Integer.toBinaryString(i));
+        System.out.println("j = " + Integer.toBinaryString(j));
+        System.out.println("i & j = " + Integer.toBinaryString(i & j));
+        System.out.println("i | j = " + Integer.toBinaryString(i | j));
+        System.out.println("i ^ j = " + Integer.toBinaryString(i ^ j));
+        System.out.println("~i = " + Integer.toBinaryString(~i));
+        System.out.println("~j = " + Integer.toBinaryString(~j));
         try {
             test();
-            test(nums);
-            for (int n : nums) System.out.print(n + " ");
+//            int[] nums = {1, 0, -1, 0, -2, 2, 9};
+//            for (int n : nums) System.out.print(n + " ");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -28,11 +40,6 @@ public class App {
 
 
     private static void test(int[] a){
-        for (int i = 0, j = a.length - 1; i < j; i++, j--){
-            int t = a[i];
-            a[i] = a[j];
-            a[j] = t;
-        }
     }
 
 
