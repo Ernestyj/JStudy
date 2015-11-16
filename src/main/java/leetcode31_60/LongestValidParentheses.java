@@ -1,9 +1,6 @@
-package eugene;
+package leetcode31_60;
 
 import eugene.examples.generic.Stack;
-
-import java.util.ArrayList;
-import java.util.Queue;
 
 /**
  * Given a string containing just the characters '(' and ')', find the length of the longest valid

@@ -1,4 +1,4 @@
-package eugene;
+package leetcode31_60;
 
 /**
  * Suppose a sorted array is rotated at some pivot unknown to you beforehand.
