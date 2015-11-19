@@ -35,7 +35,7 @@ public class App {
         System.out.println(Integer.toBinaryString(c));
         c = 'd';
         System.out.println(Integer.toBinaryString(c));
-        c +=1;
+        c += 1;
         System.out.println(Integer.toBinaryString(c));
         c = 'A';
         System.out.println(Integer.toBinaryString(c));
@@ -48,7 +48,7 @@ public class App {
 //            int[] nums = {1, 0, -1, 0, -2, 2, 9};
 //            for (int n : nums) System.out.print(n + " ");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); 
         }
 
     }

@@ -19,7 +19,7 @@ public class Combination {
      * 可以使用2^n - 1个位，1表示取该元素，0表示不取。
      * 例如001,010,011,100,101,110,111。对应输出组合结果为：a,b,ab,c,ac,bc,abc。
      * 因此可以循环 1~2^n-1(字符串长度)，然后输出对应代表的组合即可。
-     *
+     * TODO 判断数x第i位是否为1：x & (1 << (i - 1)) != 0则为1
      * @param str
      */
     public static void printAllCombinations(String[] str) {
@@ -37,7 +37,7 @@ public class Combination {
     }
 
     /**
-     * TODO
+     * TODO http://www.cnblogs.com/shuaiwhu/archive/2012/04/27/2473788.html
      * 递归法
      *
      * @param str
@@ -45,5 +45,6 @@ public class Combination {
     public static void allCombinations(String[] str) {
 
     }
+
 
 }
