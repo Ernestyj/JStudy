@@ -11,7 +11,6 @@ import java.util.HashMap;
 public class ValidSudoku {
 
     public static void main(String[] args) {
-        int[] nums = {1, 3, 5, 6};
         String[] input = {".87654321","2........","3........","4........","5........","6........","7........",
                 "8........","9........"};
         char[][] in = new char[9][9];
@@ -23,6 +22,7 @@ public class ValidSudoku {
     }
 
     // Brute force，对每个九宫格，行号起始block/3*3，列号起始block%3*3
+    // 如果把九宫格按照行从0开始标号，那么数字board[i][j]位于第 i/3*3+j/3 个九宫格内
     // 时间复杂度：O(3*n^2), n=9
     public boolean isValidSudoku(char[][] board) {
         int len = board[0].length;
