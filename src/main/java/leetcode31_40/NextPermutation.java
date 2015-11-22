@@ -1,4 +1,4 @@
-package leetcode31_60;
+package leetcode31_40;
 
 /**
  * Implement next permutation, which rearranges numbers into the lexicographically

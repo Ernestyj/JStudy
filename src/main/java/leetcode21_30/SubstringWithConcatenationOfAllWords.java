@@ -1,4 +1,4 @@
-package leetcode1_30;
+package leetcode21_30;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,7 +57,7 @@ public class SubstringWithConcatenationOfAllWords {
      * 思路：
      1. 遍历一遍单词数组L集合，构造总单词表
      2. 以单词长度为步长，遍历目标字符串，如果当前单词在总单词表内，则进入步骤3；
-        反之，则清空当前滑块单词表，将cout置零，将left移动到下一位置
+        反之，则清空当前滑块单词表，将count置零，将left移动到下一位置
      3. 当前滑块档次表中的相应单词计数加1，检查该单词的计数是否小于等于总单词表中该单词的总数，
         如果是，则将count计数加1，进入步骤5；反之，进入步骤4
      4. 根据左起点left收缩滑块，直到收缩到与当前单词相同的字符串片段，将其剔除之后，滑块的收缩工作完成。
@@ -79,35 +79,36 @@ public class SubstringWithConcatenationOfAllWords {
     public List<Integer> findSubstring(String s, String[] words) {
         List<Integer> indexes = new ArrayList<>();
         if (s == null || s.length() == 0 || words == null || words.length == 0) return indexes;
+        int wLen = words[0].length();
         HashMap<String,Integer> book = new HashMap<String,Integer>();
         for (int k = 0; k < words.length; k++){
             if (book.containsKey(words[k])) book.put(words[k], book.get(words[k]) + 1);
             else book.put(words[k], 1);
         }
-        for(int i = 0; i < words[0].length(); i++) {
+        for(int i = 0; i < wLen; i++) {
             HashMap<String,Integer> curMap = new HashMap<String,Integer>();
             int count = 0;
             int left = i;   //left标记，记录滑块左起点
             //以单词长度为步长，遍历目标字符串
-            for(int j = i; j <= s.length() - words[0].length(); j += words[0].length()) {
-                String str = s.substring(j, j + words[0].length());
+            for(int right = i; right <= s.length() - wLen; right += wLen) {
+                String str = s.substring(right, right + wLen);
                 if(book.containsKey(str)) { //当前单词在总单词表内
+                    //set frequency in current map
                     if(curMap.containsKey(str)) curMap.put(str, curMap.get(str) + 1);
                     else curMap.put(str, 1);
                     //该单词的计数 <= 单词表中该单词的总数
                     if(curMap.get(str) <= book.get(str)) count++;
-                    //该单词的计数 > 单词表中该单词的总数
                     else {
                         while(curMap.get(str) > book.get(str)) {
                             //根据左起点left收缩滑块
-                            String temp = s.substring(left, left + words[0].length());
+                            String temp = s.substring(left, left + wLen);
                             //直到收缩到与当前单词相同的字符串片段
                             if(curMap.containsKey(temp)) {
                                 //将其剔除之后，滑块的收缩工作完成
                                 curMap.put(temp, curMap.get(temp) - 1);
                                 if(curMap.get(temp) < book.get(temp)) count--;
                             }
-                            left += words[0].length();
+                            left += wLen;
                         }
                     }
                     //如果当前count计数等于单词集合长度
@@ -115,17 +116,17 @@ public class SubstringWithConcatenationOfAllWords {
                         //记录下left左起点的位置
                         indexes.add(left);
                         //将left右移
-                        String temp = s.substring(left, left + words[0].length());
+                        String temp = s.substring(left, left + wLen);
                         //当前滑块中相应单词计数减1
                         if(curMap.containsKey(temp)) curMap.put(temp, curMap.get(temp) - 1);
                         //总计数减1
                         count--;
-                        left += words[0].length();
+                        left += wLen;
                     }
                 } else {    //当前单词不在总单词表内
                     curMap.clear();
                     count = 0;
-                    left = j + words[0].length();
+                    left = right + wLen;
                 }
             }
         }

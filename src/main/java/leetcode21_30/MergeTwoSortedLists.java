@@ -1,4 +1,4 @@
-package leetcode1_30;
+package leetcode21_30;
 
 /**
  * Merge two sorted linked lists and return it as a new list.

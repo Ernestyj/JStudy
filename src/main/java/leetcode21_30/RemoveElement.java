@@ -1,4 +1,4 @@
-package leetcode1_30;
+package leetcode21_30;
 
 /**
  * Given an array and a value, remove all instances of that value in place and return the new length.

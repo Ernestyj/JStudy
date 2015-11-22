@@ -1,4 +1,4 @@
-package leetcode1_30;
+package leetcode1_10;
 
 /**（注意大整数）
  * You are given two linked lists representing two non-negative numbers.

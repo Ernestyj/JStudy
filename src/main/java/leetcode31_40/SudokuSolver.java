@@ -1,4 +1,4 @@
-package leetcode31_60;
+package leetcode31_40;
 
 /**
  * Write a program to solve a Sudoku puzzle by filling the empty cells.

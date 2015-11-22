@@ -1,4 +1,4 @@
-package leetcode31_60;
+package leetcode31_40;
 
 /**
  * The count-and-say sequence is the sequence of integers beginning as follows:

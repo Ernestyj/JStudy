@@ -1,4 +1,4 @@
-package leetcode1_30;
+package leetcode11_20;
 
 import eugene.examples.generic.Stack;
 

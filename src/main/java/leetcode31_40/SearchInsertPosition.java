@@ -1,4 +1,4 @@
-package leetcode31_60;
+package leetcode31_40;
 
 /**
  * Given a sorted array and a target value, return the index if the target is found.

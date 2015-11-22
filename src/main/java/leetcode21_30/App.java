@@ -1,4 +1,4 @@
-package leetcode1_30;
+package leetcode21_30;
 
 import java.io.IOException;
 import java.util.Arrays;
