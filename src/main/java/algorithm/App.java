@@ -15,6 +15,10 @@ public class App {
         System.out.println("*****RESULT*****");
 
         System.out.println();
+        char[] chars1 = {'1', '2'};
+        char[] chars2 = {'1', '2'};
+        System.out.println(chars1 == chars2);
+
 
         try {
             test();
