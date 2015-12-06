@@ -1,13 +1,17 @@
-package algorithm;
+package leetcode51_60;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**每一个的横竖斜都没有其他皇后
+/**
+ * Follow up for N-Queens problem.
+ Now, instead outputting board configurations, return the total number of distinct solutions.
  * Created by Eugene on 12/5/2015.
  */
-public class NQueens {
+public class NQueensII {
 
+
+    private int count = 0;
     /**
      * http://www.cnblogs.com/springfor/p/3870944.html
      * 回溯法
@@ -17,29 +21,19 @@ public class NQueens {
      * @param n
      * @return
      */
-    public List<List<String>> solveNQueens(int n) {
-        ArrayList<List<String>> res = new ArrayList<>();
-        if(n <= 0) return res;
+    public int totalNQueens(int n) {
+        if (n <= 0) return 0;
         int [] colVal = new int[n];
-        dfsHelper(n, res, 0, colVal);
-        return res;
+        dfsHelper(n, 0, colVal);
+        return count;
     }
-    private void dfsHelper(int n, List<List<String>> res, int row, int[] colVal){
+    private void dfsHelper(int n, int row, int[] colVal){
         if(row == n){
-            List<String> aSolution = new ArrayList<>(n);
-            for(int i = 0; i < n; i++){
-                StringBuilder s = new StringBuilder();
-                for(int j = 0; j < n; j++){
-                    if(j == colVal[i]) s.append("Q");
-                    else s.append(".");
-                }
-                aSolution.add(s.toString());
-            }
-            res.add(aSolution);
+            count++;
         }else{
             for(int i = 0; i < n; i++){
                 colVal[row] = i;    //(row,i)
-                if(isValid(row, colVal)) dfsHelper(n, res, row + 1, colVal);
+                if(isValid(row, colVal)) dfsHelper(n, row + 1, colVal);
             }
         }
     }
