@@ -11,19 +11,20 @@ package leetcode41_50;
  (Jump 1 step from index 0 to 1, then 3 steps to the last index.)
  * Created by DCLab on 11/28/2015.
  */
-public class JumpGame {
+public class JumpGameII {
 
     public static void main(String[] args) {
-        int[] nums = {2,3,1,1,4};
+        int[] nums = { 0, 2 ,3 };//2,3,1,1,4
         System.out.println("*****RESULT*****");
-        System.out.println(new JumpGame().jump(nums));
+        System.out.println(new JumpGameII().jump(nums));
     }
 
 
     /**
      * 首先明白，这个题只要我们求跳数，怎么跳、最后距离是多少都没让求，不要做无必要的计算。
+     * 如果采用DP，大数据测试用例将无法通过。
      * 分析图：http://www.cnblogs.com/lichen782/p/leetcode_Jump_Game_II.html
-     * 贪心：
+     * 贪心思路：
      * last:用最小跳数jumps可达的最大距离；
      * curr:用jumps + 1跳可达的最大距离；（贪心值）
      * 有curr = max(i+nums[i]), 0 <= i <= last
