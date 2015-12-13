@@ -13,9 +13,14 @@ import java.util.List;
 public class Permutations {
 
     public static void main(String[] args) {
-        int nums[] = { 1,3,2 };
-        new Permutations().permute(nums);
-        System.out.println();
+        int nums[] = { 1,2,3 };
+        List<List<Integer>> result = new Permutations().permute(nums);
+        for (List<Integer> integers : result){
+            for (Integer i : integers){
+                System.out.print(i);
+            }
+            System.out.print(" ");
+        }
     }
 
 

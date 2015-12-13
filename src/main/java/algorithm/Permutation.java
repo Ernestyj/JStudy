@@ -12,8 +12,8 @@ public class Permutation {
 //        String str[] = { "A", "B", "C", "D", "E" };
         String str[] = { "A" };
         printAllPermutations(str);
-        System.out.println();
-        printAllPermutations1("ABCD");
+        System.out.println("\n Another******************");
+        printAllPermutations1("123");
     }
 
     /**
