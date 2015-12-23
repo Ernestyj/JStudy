@@ -1,6 +1,7 @@
 package leetcode41_50;
 
-import eugene.examples.generic.Stack;
+
+import java.util.Stack;
 
 /**
  * There are two sorted arrays nums1 and nums2 of size m and n respectively.

@@ -7,14 +7,14 @@ import java.util.EmptyStackException;
 /**
  * Created by DCLab on 10/22/2015.
  */
-public class Stack<E> {
+public class MyStack<E> {
     private E[] elements;
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
     //此处类型转换安全
     @SuppressWarnings("unchecked")
-    public Stack() {
+    public MyStack() {
         elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
     }
 
