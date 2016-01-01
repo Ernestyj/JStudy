@@ -18,16 +18,14 @@ public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int[] nums = {-2, -1, 0, 0, 1, 2, 2, 4, 6};
 //        int[] nums = {1};
-
         System.out.println("************************");
         int count = new RemoveDuplicatesFromSortedArray().removeDuplicates(nums);
         System.out.println(count);
         for (int i : nums) System.out.print(i + " ");
-
     }
 
     /**
-     * 用index存不同数字的个数，遍历数组判断当前值是否和前一个值不一样。
+     * 用index存不同数字的个数(种数)，遍历数组判断当前值是否和前一个值不一样。
      如果不一样，就是一个新的值，更新数组并对index加1。
      *
      * @param nums
@@ -37,7 +35,8 @@ public class RemoveDuplicatesFromSortedArray {
         if (nums == null || nums.length == 0) return 0;
         int index = 1;
         for (int i = 1; i < nums.length; i++){
-            if (nums[i] != nums[i - 1]) nums[index++] = nums[i];
+            if (nums[i] != nums[i - 1])
+                nums[index++] = nums[i];    //其实 index++; 即可，赋值操作无影响（题目没有要求）
         }
         return index;
     }
