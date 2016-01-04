@@ -1,14 +1,13 @@
 package leetcode81_90;
 
 /**
- * Given a sorted linked list, delete all nodes that have duplicate numbers,
- * leaving only distinct numbers from the original list.
+ * Given a sorted linked list, delete all duplicates such that each element appear only once.
  For example,
- Given 1->2->3->3->4->4->5, return 1->2->5.
- Given 1->1->1->2->3, return 2->3.
- * Created by DCLab on 1/3/2016.
+ Given 1->1->2, return 1->2.
+ Given 1->1->2->3->3, return 1->2->3.
+ * Created by DCLab on 1/4/2016.
  */
-public class RemoveDuplicatesFromSortedListII {
+public class RemoveDuplicatesFromSortedList {
 
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
@@ -22,20 +21,28 @@ public class RemoveDuplicatesFromSortedListII {
     }
 
 
-    /**
-     * TODO 第一次尝试，思路不清晰导致代码无法继续写
-     * 遍历中探测当前节点的下两个节点
-     * http://www.programcreek.com/2014/06/leetcode-remove-duplicates-from-sorted-list-ii-java/
-     * @param head
-     * @return
-     */
     public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) return head;
+        ListNode p = head;
+        while (p.next != null){
+            if (p.val == p.next.val){
+                p.next = p.next.next;
+            } else {
+                p = p.next; //TODO 只有值不同时才往下走
+            }
+        }
+        return head;
+    }
+
+    //利用RemoveDuplicatesFromSortedListII思路
+    public ListNode deleteDuplicates1(ListNode head) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode p = dummy;
         while(p.next!=null && p.next.next!=null){
             if(p.next.val == p.next.next.val){
                 int dup = p.next.val;
+                p = p.next; //与RemoveDuplicatesFromSortedListII的唯一区别，多了此语句，来存储重复节点一次
                 while(p.next!=null && p.next.val==dup){
                     p.next = p.next.next;
                 }
