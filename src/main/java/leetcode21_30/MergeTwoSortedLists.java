@@ -69,10 +69,9 @@ public class MergeTwoSortedLists {
         return mergedHead;
     }
 
-    /**
+    /**TODO 重温
      * 递归法
      * 时间复杂度：与上述传统方法一样 ？？？
-     *
      * @param l1
      * @param l2
      * @return
