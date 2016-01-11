@@ -28,19 +28,24 @@ public class Subsets {
 
 
     private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> temp;
-    //判断数i第k位是否为1：i&(1 << k-1) != 0则为1
+    private List<Integer> sol;
+    /**
+     * 位图法：判断数i第k位是否为1：i&(1 << k-1) != 0则为1
+     * 回溯法、添加数字法参考“全组合算法”
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> subsets(int[] nums) {
         Arrays.sort(nums);
         int len = nums.length;
         int n = 1 << len;   //2^len
         for (int i=0; i<n; i++){
-            temp = new ArrayList<>();
+            sol = new ArrayList<>();
             //查看第一层循环任意一种取值中哪一位是1；如果是1，对应的字符就存在
             for (int k=1; k<=len; k++){
-                if ( (i&(1 << k-1)) != 0 ) temp.add(nums[k-1]);
+                if ( (i&(1 << k-1)) != 0 ) sol.add(nums[k-1]);
             }
-            result.add(new ArrayList<>(temp));
+            result.add(new ArrayList<>(sol));
         }
         return result;
     }

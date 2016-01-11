@@ -4,15 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 输入三个字符 a、b、c，则它们的组合有a b c ab ac bc abc。
- *
+ * 输入三个字符 a、b、c（不重复），则它们的组合有a b c ab ac bc abc。
+ * 若输入字符含有重复，可参考SubsetsII。
  * Created by DCLab on 11/13/2015.
  */
 public class Combination {
 
     public static void main(String[] args) {
-        String str[] = { "A", "B", "C", "D", "E" };
-        printAllCombinations(str);
+        String str[] = { "A", "B", "C" };
+//        String str[] = { "A", "B", "C", "D", "E" };
+        System.out.println("*****RESULT*****");
+        //方法一
+//        printAllCombinations(str);
+        //方法二
+//        Combination instance = new Combination();
+//        instance.allCombinations(str);
+//        for (List<String> strs : instance.result){
+//            for (String i : strs) System.out.print(i + " ");
+//            System.out.println();
+//        }
+        //方法三
+        List<List<String>> res = new Combination().allCombinations1(str);
+        for (List<String> strs : res){
+            for (String i : strs) System.out.print(i + " ");
+            System.out.println();
+        }
+
     }
 
     /**
@@ -37,41 +54,51 @@ public class Combination {
             }
             System.out.print(sb + " ");
         }
+        System.out.println("\n*********");
     }
 
     /**
-     * TODO
      * 回溯法
-     *
      * @param str
      */
-    public static void allCombinations(String[] str) {
-
-    }
-
-    /**TODO 修改下列算法为全组合
-     * 回溯法
-     * Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
-     For example,
-     If n = 4 and k = 2, a solution is:
-     [ [2,4], [3,4], [2,3], [1,2], [1,3], [1,4] ]
-     */
-    private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> temp = new ArrayList<>();
-    public List<List<Integer>> combine(int n, int k) {
-        if (n == 0 || k == 0) return result;
-        backTrack(n, k, 1);
+    private List<List<String>> result = new ArrayList<>();
+    private List<String> sol = new ArrayList<>();
+    public List<List<String>> allCombinations(String[] str) {
+        backTrack(str, 0);
         return result;
     }
-    private void backTrack(int n, int k, int x){
-        if (k == 0){
-            result.add(new ArrayList<>(temp));
+    private void backTrack(String[] str, int start){
+        for(int i=start; i<str.length; i++) {
+            sol.add(str[i]);
+            result.add(new ArrayList<>(sol));
+            backTrack(str, i+1);
+            sol.remove(sol.size() - 1);
         }
-        for (int i=x; i<=n; i++){
-            temp.add(i);
-            backTrack(n, k - 1, i + 1);
-            temp.remove(temp.size()-1);
+    }
+
+    /**
+     * 添加数字构建subset方法（TODO 注意：此方法需要起始包含空集！）
+     起始subset集为：[]
+     添加S0后为：[] | [S0]
+     添加S1后为：[], [S0] | [S1], [S0, S1]
+     添加S2后为：[], [S0], [S1], [S0, S1] | [S2], [S0, S2], [S1, S2], [S0, S1, S2]
+     显然规律为添加Si后，新增的subset为克隆现有的所有subset，并在它们后面都加上Si。
+     * @param str
+     * @return TODO 注意返回结果中含有空集
+     */
+    public List<List<String>> allCombinations1(String[] str) {
+        List<List<String>> result = new ArrayList<>();
+        List<String> newSol = new ArrayList<>();
+        result.add(newSol);   //添加空集
+        for(int i=0; i<str.length; i++) {
+            int n = result.size();
+            for(int j=0; j<n; j++) {
+                newSol = new ArrayList<>(result.get(j));    //TODO 此处应分配新空间
+                newSol.add(str[i]);
+                result.add(newSol);
+            }
         }
+        return result;
     }
 
 

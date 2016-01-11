@@ -30,11 +30,11 @@ public class Combinations {
         backTrack(n, k, 1);
         return result;
     }
-    private void backTrack(int n, int k, int x){
+    private void backTrack(int n, int k, int start){
         if (k == 0){
             result.add(new ArrayList<>(temp));
         }
-        for (int i=x; i<=n; i++){
+        for (int i=start; i<=n; i++){
             temp.add(i);
             backTrack(n, k - 1, i + 1);
             temp.remove(temp.size()-1);
