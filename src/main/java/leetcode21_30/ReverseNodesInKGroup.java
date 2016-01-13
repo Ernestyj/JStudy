@@ -42,7 +42,6 @@ public class ReverseNodesInKGroup {
 
     /**
      * http://www.cnblogs.com/lichen782/p/leetcode_Reverse_Nodes_in_kGroup.html
-     *
      * @param head
      * @param k
      * @return
@@ -73,7 +72,6 @@ public class ReverseNodesInKGroup {
      * |           |
      * pre        next
      * after call pre = reverse(pre, next)
-     *
      * 0->3->2->1->4->5->6
      *          |  |
      *          pre next
