@@ -1,6 +1,6 @@
 package eugene;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 /**
  * Created by Jian on 2015/7/28.
