@@ -42,4 +42,31 @@ public class ValidateBinarySearchTree {
         return dfs(root.left, min, root.val) && dfs(root.right, root.val, max);
     }
 
+
+    private boolean isValid = true;
+    private TreeNode pre = null;
+    /**与上述方法时间复杂度一致
+     * 另一种递归思路,类似Recover Binary Search Tree
+     * 注意pre存的是中序次序的上一个节点
+     * @param root
+     * @return
+     */
+    public boolean isValidBST1(TreeNode root) {
+        inOrder(root);
+        return isValid;
+    }
+    private void inOrder(TreeNode root){
+        if (root == null) return;
+        inOrder(root.left);
+        if (pre == null) pre = root;
+        else {
+            if (pre.val >= root.val){
+                isValid = false;
+                return;
+            }
+            pre = root;
+        }
+        inOrder(root.right);
+    }
+
 }
