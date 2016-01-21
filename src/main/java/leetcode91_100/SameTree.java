@@ -37,6 +37,7 @@ public class SameTree {
         return false;
     }
 
+
     public boolean isSameTree1(TreeNode p, TreeNode q) {
         if (p==null && q==null) return true;
         List<Integer> pInts = new ArrayList<>();
