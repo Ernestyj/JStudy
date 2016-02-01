@@ -17,10 +17,9 @@ public class PathSum {
         TreeNode(int x) { val = x; }
     }
 
-    //TODO 二叉树后序遍历迭代方式(待验证)
 
     /**
-     * 递归
+     * dfs,递归
      * http://www.programcreek.com/2013/01/leetcode-path-sum/
      * @param root
      * @param sum
