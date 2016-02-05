@@ -16,59 +16,75 @@ public class PopulatingNextRightPointersInEachNodeII {
         TreeLinkNode(int x) { val = x; }
     }
 
-
-    /**
-     * http://blog.csdn.net/linhuanmars/article/details/23510601
-     * 类似二叉树层次遍历,由于使用队列
+    /**(OJ 78%) TODO 难理解
+     * http://fisherlei.blogspot.tw/2012/12/leetcode-populating-next-right-pointers_29.html
+     * 找到规律用递归求解,类似上一题Populating Next Right Pointers in Each Node,
+     唯一的不同是每次要先找到一个第一个有效的next链接节点，并且递归的时候要先处理右子树，再处理左子树.
+     空间复杂度O(1)
      * @param root
      */
     public void connect(TreeLinkNode root) {
-        if(root == null) return;
-
-        TreeLinkNode lastHead = root;//prevous level's head
-        TreeLinkNode lastCurrent = null;//previous level's pointer
-        TreeLinkNode currentHead = null;//currnet level's head
-        TreeLinkNode current = null;//current level's pointer
-
-        while(lastHead!=null){
-            lastCurrent = lastHead;
-
-            while(lastCurrent!=null){
-                //left child is not null
-                if(lastCurrent.left!=null)    {
-                    if(currentHead == null){
-                        currentHead = lastCurrent.left;
-                        current = lastCurrent.left;
-                    }else{
-                        current.next = lastCurrent.left;
-                        current = current.next;
-                    }
-                }
-
-                //right child is not null
-                if(lastCurrent.right!=null){
-                    if(currentHead == null){
-                        currentHead = lastCurrent.right;
-                        current = lastCurrent.right;
-                    }else{
-                        current.next = lastCurrent.right;
-                        current = current.next;
-                    }
-                }
-
-                lastCurrent = lastCurrent.next;
+        if (root==null) return;
+        TreeLinkNode p = root.next;
+        while (p!=null){
+            if (p.left!=null) {
+                p = p.left; break;
             }
+            if (p.right!=null) {
+                p = p.right; break;
+            }
+            p = p.next;
+        }
+        if (root.right!=null) root.right.next = p;
+        if (root.left!=null) root.left.next = root.right!=null ? root.right : p;
+        connect(root.right);
+        connect(root.left);
+    }
 
-            //update last head
-            lastHead = currentHead;
-            currentHead = null;
+    /**(OJ 30%)
+     * http://www.programcreek.com/2014/06/leetcode-populating-next-right-pointers-in-each-node-ii-java/
+     * 类似二叉树层次遍历,但不再使用队列,而是将树的每一层维护成一个链表,空间复杂度O(1);
+     每次维护两层,共计4个指针:lastHead, curHead, lastCur, curPre.
+     * @param root
+     */
+    public void connect1(TreeLinkNode root) {
+        if(root == null) return;
+        TreeLinkNode lastHead = root;
+        TreeLinkNode curHead = null;
+        TreeLinkNode lastCur = null;
+        TreeLinkNode curPre = null;
+        while(lastHead!=null) {
+            lastCur = lastHead;
+            while(lastCur != null) {
+                if(lastCur.left!=null) {
+                    if(curHead == null) {
+                        curHead = lastCur.left;
+                        curPre = lastCur.left;
+                    } else {
+                        curPre.next = lastCur.left;
+                        curPre = curPre.next;
+                    }
+                }
+                if(lastCur.right!=null) {
+                    if(curHead == null) {
+                        curHead = lastCur.right;
+                        curPre = lastCur.right;
+                    } else {
+                        curPre.next = lastCur.right;
+                        curPre = curPre.next;
+                    }
+                }
+                lastCur = lastCur.next;
+            }
+            lastHead = curHead; //往下层移动
+            curHead = null;
         }
     }
 
     /**类似二叉树层次遍历,使用队列,空间复杂度O(n)
      * @param root
      */
-    public void connect1(TreeLinkNode root) {
+    public void connect2(TreeLinkNode root) {
         if (root==null) return;
         Queue<TreeLinkNode> curQueue = new LinkedList<>();
         Queue<TreeLinkNode> nextQueue = new LinkedList<>();

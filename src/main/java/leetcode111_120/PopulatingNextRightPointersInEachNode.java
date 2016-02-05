@@ -22,9 +22,10 @@ public class PopulatingNextRightPointersInEachNode {
     //用Populating Next Right Pointers in Each Node II解法兼容此特殊情况(类似二叉树层次遍历)
 
     /**
-     * 由于题目中的二叉树是完全二叉树,找到规律可用递归求解(OJ排名82%);
+     * 由于题目中的二叉树是完全二叉树,找到规律可用递归求解(OJ 82%);
      1. 根节点的左子树，其next是该根节点的右子树;
      2. 根节点的右子树，其next是该根节点next节点的左子树.
+     空间复杂度O(1)
      * https://gist.github.com/benjaminwu7/4700435
      * @param root
      */
