@@ -11,11 +11,10 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        int i = 0;
-        for (; i<10; i++){
-            if (i == 6) break;
-        }
-        System.out.println(i);
+        char[] chars = new char[2];
+        chars[0] = 'a';
+        chars[1] = 'b';
+        System.out.println(chars.toString());
 
     }
 

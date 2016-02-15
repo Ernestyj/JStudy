@@ -33,7 +33,7 @@ public class WordLadder {
 
     /**
      * http://www.programcreek.com/2012/12/leetcode-word-ladder/
-     * 分支限界法(BFS,最短路径)
+     * 分支限界法(BFS,最短路径),算法引入WordNode数据结构
      * @param beginWord
      * @param endWord
      * @param wordList
