@@ -12,56 +12,18 @@ import java.util.List;
 public class PalindromePartitioning {
 
     public static void main(String[] args) {
-//        List<List<String>> result = new PalindromePartitioning().partition("amanaplanacanalpanama");
-//        for (List<String> list : result){
-//            for (String s : list){
-//                System.out.print(s + " ");
-//            }
-//            System.out.println();
-//        }
-        List<String> result = new PalindromePartitioning().
-                palindromePartitioning("amanaplanacanalpanama");
-        for (String s : result){
-            System.out.print(s + " ");
-        }
-    }
-
-    /**TODO
-     * DP,类似Longest palindrome substring
-     * @param s
-     * @return
-     */
-    public static List<String> palindromePartitioning(String s) {
-        List<String> result = new ArrayList<>();
-        if (s == null) return result;
-        if (s.length() <= 1) {
-            result.add(s);
-            return result;
-        }
-        int length = s.length();
-        int[][] table = new int[length][length];
-        // l is length, i is index of left boundary, j is index of right boundary
-        for (int l = 1; l <= length; l++) {
-            for (int i = 0; i <= length - l; i++) {
-                int j = i + l - 1;
-                if (s.charAt(i) == s.charAt(j)) {
-                    if (l == 1 || l == 2)
-                        table[i][j] = 1;
-                    else
-                        table[i][j] = table[i + 1][j - 1];
-                    if (table[i][j] == 1)
-                        result.add(s.substring(i, j + 1));
-                } else {
-                    table[i][j] = 0;
-                }
+        List<List<String>> result = new PalindromePartitioning().partition("amanaplanacanalpanama");
+        for (List<String> list : result){
+            for (String s : list){
+                System.out.print(s + " ");
             }
+            System.out.println();
         }
-        return result;
     }
 
     /**
      * http://www.programcreek.com/2013/03/leetcode-palindrome-partitioning-java/
-     * 回溯法(DFS)
+     * 回溯法(DFS),当然DP也可以(可参考Palindrome Partitioning II).
      * @param s
      * @return
      */
