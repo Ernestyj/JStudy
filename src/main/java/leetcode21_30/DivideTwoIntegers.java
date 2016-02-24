@@ -22,9 +22,7 @@ public class DivideTwoIntegers {
 
     }
 
-    // 另一种思路 TODO http://www.lifeincode.net/programming/leetcode-divide-two-integers-java/
-
-    /**TODO
+    /**TODO 记忆此方法
      * http://www.programcreek.com/2014/05/leetcode-divide-two-integers-java/
      * 任何一个整数可以表示成以2的幂为底的一组基的线性组合，即num=a0*2^0+a1*2^1+a2*2^2+...+an*2^n。
      * 基于以上这个公式以及左移一位相当于乘以2，我们先让除数左移直到大于被除数之前得到一个最大的基。
