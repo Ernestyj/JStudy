@@ -3,13 +3,11 @@ package leetcode31_40;
 import java.util.Stack;
 
 /**
- * Given a string containing just the characters '(' and ')', find the length of the longest valid
- * (well-formed) parentheses substring.
-
+ * Given a string containing just the characters '(' and ')', find the length of
+ the longest valid (well-formed) parentheses substring.
  For "(()", the longest valid parentheses substring is "()", which has length = 2.
  Another example is ")()())", where the longest valid parentheses substring is "()()",
  which has length = 4.
- *
  * Created by Eugene on 11/16/2015.
  */
 public class LongestValidParentheses {
@@ -23,12 +21,13 @@ public class LongestValidParentheses {
     }
 
 
-    /**TODO
+    /**TODO 重温理解及记忆,尤其是代码最后一个else部分
      * http://www.cnblogs.com/lichen782/p/leetcode_Longest_Valid_Parentheses.html
-     * 用stack来存左括号的index。遍历s。遇到'('，放入lefts。
-     * 如果遇到')'，如果lefts是空，说明这是一个无法匹配的')'，记录下last。
-     * last里面存放的其实是最后一个无法匹配的')',主要是为了计算后面完整的表达式的长度。
-     * 可以这样理解：所有无法匹配的')'的index其实都是各个group的分界点。
+     * DP可解,但是大数据超时.
+     * 用栈来存左括号的index，遍历s，遇到'('就放入lefts栈。
+     如果遇到')'，如果lefts是空，说明这是一个无法匹配的')'，记录下last。
+     last里面存放的其实是最后一个无法匹配的')',主要是为了计算后面完整的表达式的长度。
+     可以这样理解：所有无法匹配的')'的index其实都是各个group的分界点。
      * @param s
      * @return
      */
@@ -50,7 +49,7 @@ public class LongestValidParentheses {
                     } else {
                         //栈内还有‘(',一个最外层完整的group还没有匹配完成，
                         //但是通过查询下一个即将匹配还未匹配的"("的index来更新maxLen。
-                        int k = lefts.pop(); lefts.push(k);
+                        int k = lefts.peek();
                         maxLen = Math.max(maxLen, i - k);
                     }
                 }
