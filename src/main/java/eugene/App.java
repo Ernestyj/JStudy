@@ -11,11 +11,17 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        char[] chars = new char[2];
-        chars[0] = 'a';
-        chars[1] = 'b';
-        System.out.println(chars.toString());
-
+        int[] nums = {14, 14, 14, 9};
+        int result = 0;
+        for (int i=31; i>=0; i--){
+            int sum = 0;
+            int mask = 1<<i;
+            System.out.print(i + ": ");
+            for (int j=0; j<nums.length; j++){
+                System.out.print((nums[j] & mask) + " ");
+            }
+            System.out.println();
+        }
     }
 
 
