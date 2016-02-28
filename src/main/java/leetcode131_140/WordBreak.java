@@ -16,7 +16,7 @@ public class WordBreak {
      而只要判断是否能break。对这类判断“是”与“否”的可以用DFS暴力解决的题，
      可以尝试用DP做book keeping中间判断状态，避免DFS的反复搜索。
      * 定义t[i]为区间[0,i-1]能否被分割,注意初始状态t[0]=True.
-     t[i]=True时应满足:1.s[k,i-1]在字典中,0<=k<=i-1;2.t[k]==True.
+     t[i+1]=True时应满足:1.s[k,i]在字典中,0<=k<=i;2.t[k]==True.
      * @param s
      * @param wordDict
      * @return
@@ -25,8 +25,8 @@ public class WordBreak {
         boolean[] t = new boolean[s.length()+1];
         t[0] = true;
         for (int i=0; i<s.length(); i++){
-            for (int j=i; j>=0; j--){   //TODO 重写
-                if (t[j] && wordDict.contains(s.substring(j, i-j))){
+            for (int j=0; j<=i; j++){   //TODO 边界极易出错
+                if (t[j] && wordDict.contains(s.substring(j, i+1))){
                     t[i+1] = true;
                     break;
                 }
