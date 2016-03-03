@@ -1,7 +1,6 @@
 package datastructure.tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 二叉树是一种特殊的树，在二叉树中每个节点最多有两个子节点；
@@ -71,6 +70,20 @@ public class BinaryTreeNode {
         visit(root);
         traversePreOder(root.left);
         traversePreOder(root.right);
+    }
+
+    public List<String> traversePreOderIterative(BinaryTreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root==null) return result;
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            BinaryTreeNode node = stack.pop();
+            result.add(node.val);
+            if (node.right!=null) stack.push(node.right);
+            if (node.left!=null) stack.push(node.left);
+        }
+        return result;
     }
 
 
