@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.linked;
 
 /**
  * Created by eugene on 16/3/2.
