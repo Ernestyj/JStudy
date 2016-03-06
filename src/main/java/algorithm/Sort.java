@@ -26,8 +26,9 @@ public class Sort {
      * @param nums
      * @return
      */
-    public void quickSort(int[] nums){
+    public int[] quickSort(int[] nums){
         quickSort(nums, 0, nums.length - 1);
+        return nums;
     }
     private void quickSort(int[] nums, int left, int right){
         if (left < right) {
@@ -95,6 +96,24 @@ public class Sort {
     }
 
 
-
+    /**
+     * 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。
+     * @param nums
+     * @return
+     */
+    public int[] insertionSort(int[] nums){
+        for (int i=1; i<nums.length; i++){
+            if (nums[i-1]>nums[i]){
+                int temp = nums[i];
+                int j = i;
+                while (j>0 && nums[j-1]>temp) {
+                    nums[j] = nums[j-1];
+                    j--;
+                }
+                nums[j] = temp;
+            }
+        }
+        return nums;
+    }
 
 }
