@@ -34,6 +34,7 @@ public class MergeTwoSortedLists {
         ListNode(int x) { val = x; }
     }
 
+    //TODO 下述方法可以引入dummy头结点来简化
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode node1 = l1;
         ListNode node2 = l2;

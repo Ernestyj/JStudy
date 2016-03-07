@@ -9,11 +9,11 @@ public class Sort {
 
         int[] nums = {48, 6, 57, 42, 60, 72, 83, 73, 88, 85};
         System.out.println("*****RESULT*****");
-        new Sort().quickSort(nums);
-        for (int i : nums) System.out.print(i + " ");
+//        new Sort().quickSort(nums);
+//        for (int i : nums) System.out.print(i + " ");
 
-//        int[] result = new Sort().mergeSort(nums);
-//        for (int i : result) System.out.print(i + " ");
+        int[] result = new Sort().mergeSort(nums);
+        for (int i : result) System.out.print(i + " ");
     }
 
     /**TODO 重温加强理解
@@ -71,7 +71,7 @@ public class Sort {
     public int[] mergeSort(int[] nums){
         int[] tempSorted = new int[nums.length];
         mergeSort(nums, 0, nums.length - 1, tempSorted);
-        return tempSorted;
+        return nums;    //或return tempSorted; 最终两个数组都是排好序的
     }
     private void mergeSort(int[] unsorted, int left, int right, int[] tempSorted){
         if (left < right){
