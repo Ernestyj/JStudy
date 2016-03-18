@@ -15,7 +15,7 @@ public class FractionToRecurringDecimal {
 
     public static void main(String[] args) {
         System.out.println(new FractionToRecurringDecimal().fractionToDecimal(13,97));
-    }1
+    }
 
     //http://www.programcreek.com/2014/03/leetcode-fraction-to-recurring-decimal-java/
     public String fractionToDecimal(int numerator, int denominator) {
