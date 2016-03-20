@@ -11,11 +11,14 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        System.out.println(7L/99L);
+        System.out.println(factorial(1808548329));
 
     }
 
-
+    static private long factorial(int n){
+        if (n==0||n==1) return 1;
+        return factorial(n-1)*n;
+    }
 
 
 
