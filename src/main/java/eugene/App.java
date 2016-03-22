@@ -11,7 +11,7 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        System.out.println(factorial(1808548329));
+        System.out.println(Integer.MAX_VALUE+3);
 
     }
 
