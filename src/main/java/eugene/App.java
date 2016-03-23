@@ -11,7 +11,7 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        System.out.println(Integer.MAX_VALUE+3);
+        System.out.println(Integer.valueOf("00"));
 
     }
 
