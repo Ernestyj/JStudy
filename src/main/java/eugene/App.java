@@ -11,11 +11,8 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        System.out.println(Integer.toBinaryString(1));
-        System.out.println(Integer.toBinaryString(10));
-        System.out.println(Integer.toBinaryString(5));
-        System.out.println(Integer.toBinaryString(1<<1));
-        System.out.println(Integer.toBinaryString(1<<2));
+        Integer s = new Integer(9);
+        System.out.println(s.equals(new Integer(9)));
 
     }
 
