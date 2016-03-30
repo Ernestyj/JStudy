@@ -11,8 +11,7 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        Integer s = new Integer(9);
-        System.out.println(s.equals(new Integer(9)));
+        System.out.println(100<<1);
 
     }
 
