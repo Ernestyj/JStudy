@@ -33,8 +33,7 @@ public class GrayCode {
         }
         result = grayCode(n-1);
         int adds = 1 << (n-1);
-        int size = result.size();
-        for (int i=size-1; i>=0; i--){
+        for (int i=result.size()-1; i>=0; i--){
             result.add(result.get(i) + adds);
         }
         return result;

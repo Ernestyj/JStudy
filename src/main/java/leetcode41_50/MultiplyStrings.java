@@ -26,7 +26,7 @@ public class MultiplyStrings {
         if (num1.equals("0") || num2.equals("0")) return "0";
         char[] l = new StringBuilder(num1).reverse().toString().toCharArray();
         char[] r = new StringBuilder(num2).reverse().toString().toCharArray();
-        int[] ints = new int[num1. length() + num2.length()];
+        int[] ints = new int[num1.length() + num2.length()];
         for (int i = 0; i < num1.length(); i++){
             for (int j = 0; j < num2.length(); j++){
                 ints[i + j] += (l[i] - '0') * (r[j] - '0');
