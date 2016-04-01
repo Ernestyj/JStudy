@@ -11,11 +11,13 @@ public class App {
     public static void main(String[] args){
         System.out.println("*****RESULT*****");
 
-        System.out.println(5&7&6);
+        System.out.println(Integer.valueOf('1'));
     }
     private void test(){
         System.out.println(super.getClass().getSuperclass());
     }
 
+    public void App(){}
+    App(){}
 
 }
