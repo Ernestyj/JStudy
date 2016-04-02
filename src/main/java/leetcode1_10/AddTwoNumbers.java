@@ -12,27 +12,6 @@ package leetcode1_10;
  */
 public class AddTwoNumbers {
 
-    public static void main(String[] args) {
-//        ListNode l11 = new ListNode(2);
-//        ListNode l12 = new ListNode(4);
-//        ListNode l13 = new ListNode(3);
-//        l11.next = l12; l12.next = l13; l13.next = null;
-//        ListNode l21 = new ListNode(5);
-//        ListNode l22 = new ListNode(6);
-//        ListNode l23 = new ListNode(4);
-//        l21.next = l22; l22.next = l23; l23.next = null;
-        ListNode l11 = new ListNode(0);
-        l11.next = null;
-        ListNode l21 = new ListNode(7);
-        ListNode l22 = new ListNode(3);
-        l21.next = l22; l22.next = null;
-        ListNode node = new AddTwoNumbers().addTwoNumbers(l11, l21);
-        while (node != null){
-            System.out.print(node.val + " ");
-            node = node.next;
-        }
-    }
-
     // Definition for singly-linked list.
     public static class ListNode {
         int val;
@@ -41,6 +20,27 @@ public class AddTwoNumbers {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode p1 = l1, p2 = l2, p3 = dummy;
+        int carry = 0;
+        while(p1!=null || p2!=null){
+            if (p1!=null){
+                carry += p1.val;
+                p1 = p1.next;
+            }
+            if (p2!=null){
+                carry += p2.val;
+                p2 = p2.next;
+            }
+            p3.next = new ListNode(carry%10);
+            p3 = p3.next;
+            carry = carry/10;
+        }
+        if (carry==1) p3.next = new ListNode(1);
+        return dummy.next;
+    }
+
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
         StringBuilder builder = new StringBuilder();
         while (l1 != null){
             builder.append(l1.val);
@@ -83,7 +83,6 @@ public class AddTwoNumbers {
 
         return nodes[0];
     }
-
     private String populateZero(String s, int populateLength){
         StringBuilder builder = new StringBuilder(s);
         for (int i = 0; i < populateLength; i++){
