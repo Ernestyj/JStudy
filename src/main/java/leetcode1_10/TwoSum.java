@@ -1,10 +1,11 @@
 package leetcode1_10;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Given an array of integers, find two numbers such that they add up to a specific
- * target number.
+ * Given an array of integers, find two numbers such that they add up to a specific target number.
 
  The function twoSum should return indices of the two numbers such that they add up to
  the target, where index1 must be less than index2.
@@ -12,7 +13,7 @@ import java.util.Arrays;
  You may assume that each input would have exactly one solution.
 
  Input: numbers={2, 7, 11, 15}, target=9
- Output: index1 = 1, index2 = 2
+ Output: index1 = 0, index2 = 1
  *
  * Created by DCLab on 11/2/2015.
  */
@@ -25,70 +26,48 @@ public class TwoSum {
         System.out.print("index1: " + indexes[0] + ", index2: " + indexes[1]);
     }
 
+    /**O(n)
+     * http://www.programcreek.com/2012/12/leetcode-solution-of-two-sum-in-java/
+     * @param numbers
+     * @param target
+     * @return
+     */
+    public int[] twoSum(int[] numbers, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] result = new int[2];
+        for (int i = 0; i < numbers.length; i++) {
+            if (map.containsKey(numbers[i])) {
+                int index = map.get(numbers[i]);
+                result[0] = index;
+                result[1] = i;
+                break;
+            } else {
+                map.put(target - numbers[i], i);
+            }
+        }
+        return result;
+    }
+
     /**
-     * 时间复杂度 n^2
-     *
+     * bruteforce, 时间复杂度 n^2
      * @param nums
      * @param target
      * @return
      */
-    public int[] twoSumBruteForce(int[] nums, int target) {
+    public int[] twoSum1(int[] nums, int target) {
         int[] indexes = new int[2];
 
         for (int i = 0; i < nums.length; i++){
             for (int j = i + 1; j < nums.length; j++){
                 int sum = nums[i] + nums[j];
                 if (sum == target){
-                    indexes[0] = i + 1;
-                    indexes[1] = j + 1;
+                    indexes[0] = i;
+                    indexes[1] = j;
                     return indexes;
                 }
             }
         }
         return null;
-    }
-
-    /**
-     * 时间复杂度 nlogn （nlogn +  n）//TODO 易错（相同值的索引应区别对待）
-     * 先排序，后夹逼线性查找
-     * @param nums
-     * @param target
-     * @return
-     */
-    public int[] twoSum(int[] nums, int target) {
-        int[] sortedNums = nums.clone();
-        int[] indexes = new int[2];
-
-        Arrays.sort(sortedNums);
-
-        int left = 0;
-        int right = sortedNums.length - 1;
-        while (left < right){
-            int sum = sortedNums[left] + sortedNums[right];
-            if (sum == target){
-                indexes[0] = getOriginIndex(sortedNums[left], nums, false) + 1;
-                boolean isRepeat = false;
-                if (sortedNums[left] == sortedNums[right]) isRepeat = true;//TODO 相同值的索引应区别对待
-                indexes[1] = getOriginIndex(sortedNums[right], nums, isRepeat) + 1;
-                if (indexes[0] > indexes[1]){   //换值
-                    indexes[0] ^= indexes[1];
-                    indexes[1] ^= indexes[0];
-                    indexes[0] ^= indexes[1];
-                }
-                break;
-            } else if (sum > target) right--;
-            else left++;
-        }
-        return indexes;
-    }
-    private int getOriginIndex(int num, int[] nums, boolean isRepeat){
-        for (int i = 0; i < nums.length; i++){
-            if (nums[i] == num){
-                if (isRepeat) isRepeat = false; //TODO 此处 isRepeat = false 易漏
-                else return i;
-            }
-        }
-        return -1;
     }
 
 }

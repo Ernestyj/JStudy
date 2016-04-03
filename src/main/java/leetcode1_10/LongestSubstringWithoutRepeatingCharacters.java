@@ -2,6 +2,7 @@ package leetcode1_10;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,9 +21,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         System.out.print(x);
     }
 
-
-    /**
-     * 滑动窗口法
+    /**滑动窗口法O(n)
      * 思路：维护一个窗口，每次关注窗口中的字符串，在每次判断中，左窗口和右窗口选择其一向前移动。
      * 同样是维护一个HashSet,①正常情况下移动右窗口，如果没有出现重复则继续移动右窗口；
      * ②如果发现重复字符，则说明当前窗口中的串已经不满足要求，继续移动右窗口不可能得到更好的结果，
@@ -57,8 +56,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
 
-    /**
-     * 此算法利于理解
+    /**O(n^2)
      * 思路：每次定一个起点pre，然后从起点走到有重复字符位置，过程用一个HashSet维护当前字符集，
      * 认为是constant操作，这样算法要进行两层循环，复杂度是O(n^2)
      * 参考http://blog.csdn.net/likecool21/article/details/10858799中的图
@@ -69,7 +67,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         if (s == null || s.length() == 0) return 0;
         if (s.length() == 1) return 1;
         char[] arr = s.toCharArray();
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
         int pre = 0;
         for (int i = 0; i < arr.length; i++) {
             if (!map.containsKey(arr[i])) {

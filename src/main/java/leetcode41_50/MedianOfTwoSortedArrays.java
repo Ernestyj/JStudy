@@ -23,7 +23,7 @@ public class MedianOfTwoSortedArrays {
     }
 
 
-    /**
+    /**O(log(m + n))
      * TODO http://blog.csdn.net/yutianzuijin/article/details/11499917
      * 将原问题转变成一个寻找第k小数的问题（假设两个原序列升序排列），这样中位数实际上是第(m+n)/2小的数。
      * 递归法：实现寻找第k小的数。
@@ -43,27 +43,29 @@ public class MedianOfTwoSortedArrays {
                 findKth(nums1, 0, nums2, 0, len / 2 + 1)) / 2.0;
     }
     // find kth number of two sorted array
-    private static int findKth(int[] A, int A_start, int[] B, int B_start, int k){
-        if (A_start >= A.length)
-            return B[B_start + k - 1];
-        if (B_start >= B.length)
-            return A[A_start + k - 1];
+    private static int findKth(int[] A, int aStart, int[] B, int bStart, int k){
+        if (aStart >= A.length)
+            return B[bStart + k - 1];
+        if (bStart >= B.length)
+            return A[aStart + k - 1];
         if (k == 1)
-            return Math.min(A[A_start], B[B_start]);
-        int A_key = A_start + k / 2 - 1 < A.length
-                ? A[A_start + k / 2 - 1] : Integer.MAX_VALUE;
-        int B_key = B_start + k / 2 - 1 < B.length
-                ? B[B_start + k / 2 - 1] : Integer.MAX_VALUE;
+            return Math.min(A[aStart], B[bStart]);
+        int A_key = aStart + k/2-1 < A.length
+                ? A[aStart + k/2-1] : Integer.MAX_VALUE;
+        int B_key = bStart + k/2-1 < B.length
+                ? B[bStart + k/2-1] : Integer.MAX_VALUE;
         if (A_key < B_key) {
-            return findKth(A, A_start + k / 2, B, B_start, k - k / 2);
+            return findKth(A, aStart + k/2, B, bStart, k-k/2);
         } else {
-            return findKth(A, A_start, B, B_start + k / 2, k - k / 2);
+            return findKth(A, aStart, B, bStart + k/2, k-k/2);
         }
     }
 
 
-    /**与上面方法思路基本一致，时间复杂度相等
+    /**与上面方法思路基本一致，O(log(m + n))
      * TODO http://www.programcreek.com/2012/12/leetcode-median-of-two-sorted-arrays-java/
+     * This problem can be converted to the problem of finding kth element,
+     k is (A's length + B' Length)/2.
      * @param nums1
      * @param nums2
      * @return
@@ -72,10 +74,10 @@ public class MedianOfTwoSortedArrays {
         int m = nums1.length;
         int n = nums2.length;
         if ((m + n) % 2 != 0) // odd
-            return (double) findKth(nums1, nums2, (m + n) / 2, 0, m - 1, 0, n - 1);
+            return (double) findKth(nums1, nums2, (m+n)/2, 0, m-1, 0, n-1);
         else { // even
-            return (findKth(nums1, nums2, (m + n) / 2, 0, m - 1, 0, n - 1)
-                    + findKth(nums1, nums2, (m + n) / 2 - 1, 0, m - 1, 0, n - 1)) * 0.5;
+            return (findKth(nums1, nums2, (m+n)/2, 0, m-1, 0, n-1)
+                    + findKth(nums1, nums2, (m+n)/2-1, 0, m-1, 0, n-1))*0.5;
         }
     }
     private static int findKth(int A[], int B[], int k, int aStart, int aEnd, int bStart, int bEnd) {

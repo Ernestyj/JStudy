@@ -38,20 +38,15 @@ public class SpiralMatrixII {
         }
         int x = 0, y = 0, k = 1, i = 0;
         while(n > 0){
-            //if one row/column left, no circle can be formed
-            if(n==1){
+            if(n==1){//if one row/column left, no circle can be formed
                 matrix[x++][y] = k++;
                 break;
             }
             //below, process a circle
-            //top - move right
-            for(i=0;i<n-1;i++) matrix[x][y++] = k++;
-            //right - move down
-            for(i=0;i<n-1;i++) matrix[x++][y] = k++;
-            //bottom - move left
-            for(i=0;i<n-1;i++) matrix[x][y--] = k++;
-            //left - move up
-            for(i=0;i<n-1;i++) matrix[x--][y] = k++;
+            for(i=0;i<n-1;i++) matrix[x][y++] = k++;//top - move right
+            for(i=0;i<n-1;i++) matrix[x++][y] = k++;//right - move down
+            for(i=0;i<n-1;i++) matrix[x][y--] = k++;//bottom - move left
+            for(i=0;i<n-1;i++) matrix[x--][y] = k++;//left - move up
             x++;
             y++;
             n=n-2;

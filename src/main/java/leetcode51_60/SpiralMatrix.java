@@ -38,8 +38,7 @@ public class SpiralMatrix {
         int x=0;
         int y=0;
         while(m>0 && n>0){
-            //if one row/column left, no circle can be formed
-            if(m==1){
+            if(m==1){//if one row/column left, no circle can be formed
                 for(int i=0; i<n; i++) result.add(matrix[x][y++]);
                 break;
             }else if(n==1){
@@ -47,14 +46,10 @@ public class SpiralMatrix {
                 break;
             }
             //below, process a circle
-            //top - move right
-            for(int i=0;i<n-1;i++) result.add(matrix[x][y++]);
-            //right - move down
-            for(int i=0;i<m-1;i++) result.add(matrix[x++][y]);
-            //bottom - move left
-            for(int i=0;i<n-1;i++) result.add(matrix[x][y--]);
-            //left - move up
-            for(int i=0;i<m-1;i++) result.add(matrix[x--][y]);
+            for(int i=0;i<n-1;i++) result.add(matrix[x][y++]);//top - move right
+            for(int i=0;i<m-1;i++) result.add(matrix[x++][y]);//right - move down
+            for(int i=0;i<n-1;i++) result.add(matrix[x][y--]);//bottom - move left
+            for(int i=0;i<m-1;i++) result.add(matrix[x--][y]);//left - move up
             x++;
             y++;
             m=m-2;
