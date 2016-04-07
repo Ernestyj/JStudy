@@ -11,7 +11,7 @@ public class ImplementTriePrefixTree {
     //数据结构参考 http://www.programcreek.com/2014/05/leetcode-implement-trie-prefix-tree-java/
     class TrieNode {
         char c;
-        HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
+        HashMap<Character, TrieNode> children = new HashMap<>();
         boolean isLeaf;
 
         public TrieNode() {}
