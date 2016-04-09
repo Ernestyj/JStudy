@@ -1,4 +1,4 @@
-package algorithm;
+package onlinealgo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
