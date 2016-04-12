@@ -12,4 +12,8 @@ public class SulotionTemplate {
         System.out.println();
     }
 
+    public static boolean solution(String S, String T) {
+        return true;
+    }
+
 }

@@ -8,16 +8,9 @@ import java.util.*;
  */
 public class App {
     private static final String MESSAGE="taobao";
-
+    public String name="abc";
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
-
-        Scanner in = new Scanner(System.in);
-        while(in.hasNext()) {
-            int a = in.nextInt();
-            int b = in.nextInt();
-            System.out.println(a + b);
-        }
 
         String a ="tao"+"bao";
         String b="tao";
@@ -25,8 +18,9 @@ public class App {
         System.out.println(a==MESSAGE);
         System.out.println((b+c)==MESSAGE);
 
-//        ((App)null).testMethod();
+        ((App)null).testMethod();
 
+        
     }
     private void test(){
         System.out.println(super.getClass().getSuperclass());
@@ -37,13 +31,6 @@ public class App {
     public void App(){}
     App(){}
 
-
-    enum AccountType {
-        SAVING, FIXED, CURRENT;
-        private AccountType() {
-            System.out.println("It is a account type");
-        }
-    }
 
     private static void read(){
         Scanner in = new Scanner(System.in);
