@@ -20,7 +20,8 @@ public class App {
 
         ((App)null).testMethod();
 
-        
+        System.out.println(Integer.MAX_VALUE+1);
+
     }
     private void test(){
         System.out.println(super.getClass().getSuperclass());
