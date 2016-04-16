@@ -15,10 +15,19 @@ package leetcode171_180;
 public class ExcelSheetColumnNumber {
 
     public static void main(String[] args) {
-        System.out.println(new ExcelSheetColumnNumber().titleToNumber("AA"));
+        System.out.println(new ExcelSheetColumnNumber().titleToNumber("ABS"));
     }
 
     public int titleToNumber(String s) {
+        int result  = 0;
+        for (int i = 0; i < s.length(); i++){
+            result *= 26;
+            result += ((s.charAt(i) - 'A') + 1);
+        }
+        return result;
+    }
+
+    public int titleToNumber1(String s) {
         char[] chars = new StringBuilder(s).reverse().toString().toCharArray();
         int n = 1;
         for (int i=0; i<chars.length; i++){

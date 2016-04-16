@@ -20,7 +20,6 @@ public class App {
 
         ((App)null).testMethod();
 
-        System.out.println(Integer.MAX_VALUE+1);
 
     }
     private void test(){
@@ -31,7 +30,6 @@ public class App {
     }
     public void App(){}
     App(){}
-
 
     private static void read(){
         Scanner in = new Scanner(System.in);
@@ -54,4 +52,8 @@ public class App {
             System.out.println();
         }
     }
+}
+
+class App1{
+    App1(){}
 }
