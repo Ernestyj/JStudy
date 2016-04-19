@@ -10,28 +10,6 @@ import java.util.*;
  */
 public class MergeKSortedLists {
 
-    public static void main(String[] args) {
-        ListNode l11 = new ListNode(2);
-        ListNode l12 = new ListNode(3);
-        ListNode l13 = new ListNode(5);
-        l11.next = l12; l12.next = l13; l13.next = null;
-//        ListNode l21 = new ListNode(2);
-//        ListNode l22 = new ListNode(4);
-//        ListNode l23 = new ListNode(9);
-//        l21.next = l22; l22.next = l23; l23.next = null;
-//        ListNode l11 = null;
-        ListNode l21 = null;
-        ListNode[] lists = new ListNode[0];
-//        lists[0] = l11;
-//        lists[1] = l21;
-
-//        ListNode node = new MergeKSortedLists().mergeKLists2(lists);
-        ListNode node = new MergeKSortedLists().mergeKLists1(lists);
-        while (node != null){
-            System.out.print(node.val + " ");
-            node = node.next;
-        }
-    }
 
     // Definition for singly-linked list.
     public static class ListNode {
@@ -40,9 +18,45 @@ public class MergeKSortedLists {
         ListNode(int x) { val = x; }
     }
 
+
+    /**
+     * 二分法（分治法）
+     * http://blog.csdn.net/linhuanmars/article/details/19899259
+     * 时间复杂度：nklogk
+     * 分析：假设总共有k个list，每个list的最大长度是n，那么运行时间满足递推式T(k) = 2T(k/2)+O(n*k)。
+     * 根据主定理，可以算出算法的总复杂度是O(nklogk)
+     * @param lists
+     * @return
+     */
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null) return null;
+        return mergeSort(lists, 0, lists.length-1);
+    }
+    private ListNode mergeSort(ListNode[] lists, int left, int right){
+        if (left>=right) return lists.length == 0 ? null : lists[left];  //TODO 注意new ListNode[0];时的边界条件
+        else {
+            int mid = (left+right)/2;
+            return mergeTwoLists(mergeSort(lists, left, mid),
+                    mergeSort(lists, mid+1, right));
+        }
+    }
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val<l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l2.next, l1);
+            return l2;
+        }
+    }
+
+
     private List<Integer> array = null;
     private List<Integer> mergedArray = new ArrayList<>();
-    public ListNode mergeKLists(ListNode[] lists) { //利用JDK排序（偷懒算法)
+    //利用JDK排序（偷懒算法)
+    public ListNode mergeKLists1(ListNode[] lists) {
         for (ListNode l : lists){
             if (l == null) continue;
             int i = 0;
@@ -67,31 +81,6 @@ public class MergeKSortedLists {
     }
 
 
-    /**
-     * 二分法（分治法）
-     * http://blog.csdn.net/linhuanmars/article/details/19899259
-     *
-     * 时间复杂度：nklogk
-     * 分析：假设总共有k个list，每个list的最大长度是n，那么运行时间满足递推式T(k) = 2T(k/2)+O(n*k)。
-     * 根据主定理，可以算出算法的总复杂度是O(nklogk)
-     *
-     * @param lists
-     * @return
-     */
-    public ListNode mergeKLists1(ListNode[] lists) {
-        if (lists == null) return null;
-        return mergeSort(lists, 0, lists.length - 1);
-    }
-    private ListNode mergeSort(ListNode[] lists, int left, int right){
-        if (left < right){
-            int mid = (left + right) / 2;
-            return mergeTwoLists(mergeSort(lists, left, mid),
-                    mergeSort(lists, mid + 1, right));
-        }
-        return lists.length == 0 ? null : lists[left];  //TODO 注意new ListNode[0];时的边界条件
-    }
-
-
     //TODO 算法测试超时 时间复杂度：C1*C2* ... *n
     public ListNode mergeKLists2(ListNode[] lists) {
         ListNode node = null;
@@ -100,16 +89,6 @@ public class MergeKSortedLists {
         }
         return node;
     }
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
-        if (l1.val < l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
-            return l1;
-        } else {
-            l2.next = mergeTwoLists(l2.next, l1);
-            return l2;
-        }
-    }
+
 
 }

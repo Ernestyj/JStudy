@@ -22,6 +22,7 @@ public class App {
 
 
     }
+
     private void test(){
         System.out.println(super.getClass().getSuperclass());
     }
@@ -54,6 +55,3 @@ public class App {
     }
 }
 
-class App1{
-    App1(){}
-}
