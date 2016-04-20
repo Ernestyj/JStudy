@@ -3,7 +3,8 @@ package eugene;
 import java.io.*;
 import java.util.*;
 
-/**
+/**Implement atoi to convert a string to an integer.
+ Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
  * Created by Jian on 2015/7/28.
  */
 public class App {
@@ -20,6 +21,7 @@ public class App {
 
         ((App)null).testMethod();
 
+        System.out.println(Long.valueOf("9223372036854775809"));
 
     }
 
