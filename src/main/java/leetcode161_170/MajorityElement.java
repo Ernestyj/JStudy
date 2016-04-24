@@ -10,15 +10,29 @@ import java.util.Map;
  */
 public class MajorityElement {
 
+    //O(n) time and O(1) space
+    public int majorityElement(int[] num) {
+        int major=num[0], count = 1;
+        for(int i=1; i<num.length;i++){
+            if(count==0){
+                count++;
+                major=num[i];
+            }else if(major==num[i]){
+                count++;
+            }else count--;
+        }
+        return major;
+    }
+
     //nlog(n)
-    public int majorityElement(int[] nums) {
+    public int majorityElement1(int[] nums) {
         if (nums.length<=2) return nums[0];
         Arrays.sort(nums);
         return nums[nums.length / 2];
     }
 
     //n
-    public int majorityElement1(int[] nums) {
+    public int majorityElement2(int[] nums) {
         if (nums.length<=2) return nums[0];
         int indice = nums.length/2;
         Map<Integer, Integer> map = new HashMap<>();
