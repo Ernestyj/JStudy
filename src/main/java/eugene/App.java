@@ -13,16 +13,9 @@ public class App {
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
 
-        String a ="tao"+"bao";
-        String b="tao";
-        String c="bao";
-        System.out.println(a==MESSAGE);
-        System.out.println((b+c)==MESSAGE);
-
-        ((App)null).testMethod();
-
-        System.out.println(Long.valueOf("9223372036854775809"));
-
+        Integer a = null;
+        Integer b = 3;
+        int c = b;
     }
 
     private void test(){
