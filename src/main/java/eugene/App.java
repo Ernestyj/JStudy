@@ -21,14 +21,6 @@ public class App {
         System.out.println(c==d);
     }
 
-    private void test(){
-        System.out.println(super.getClass().getSuperclass());
-    }
-    private static void testMethod(){
-        System.out.println("testMethod");
-    }
-    public void App(){}
-    App(){}
 
     private static void read(){
         Scanner in = new Scanner(System.in);
