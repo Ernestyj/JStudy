@@ -11,9 +11,11 @@ public class Sort {
         System.out.println("*****RESULT*****");
 //        new Sort().quickSort(nums);
 //        for (int i : nums) System.out.print(i + " ");
+        QuickSort.quickSort(nums, 0, nums.length-1);
+        for (int i : nums) System.out.print(i + " ");
 
-        int[] result = new Sort().mergeSort(nums);
-        for (int i : result) System.out.print(i + " ");
+//        int[] result = new Sort().mergeSort(nums);
+//        for (int i : result) System.out.print(i + " ");
     }
 
     /**TODO 重温加强理解
@@ -116,4 +118,55 @@ public class Sort {
         return nums;
     }
 
+}
+
+class QuickSort {
+    //http://www.algolist.net/Algorithms/Sorting/Quicksort
+    static int partition(int arr[], int left, int right) {
+        int i = left, j = right;
+        int pivot = arr[(left + right) / 2];
+        while (i <= j) {
+            while (arr[i] < pivot) i++;
+            while (arr[j] > pivot) j--;
+            if (i <= j) {
+                swap(arr, i, j);
+                i++;
+                j--;
+            }
+        };
+        // 最后退出的情况应该是右指针在左指针左边一格
+        return i;
+    }
+    static void quickSort(int arr[], int left, int right) {
+        int index = partition(arr, left, right);
+        if (left < index - 1) quickSort(arr, left, index - 1);  //TODO 注意边界
+        if (index < right) quickSort(arr, index, right);
+    }
+
+    //合并版
+    public static void quickSort1(int[] arr, int low, int high) {
+        if (arr == null || arr.length == 0) return;
+        if (low >= high) return;
+        int middle = low + (high - low) / 2;    // pick the pivot
+        int pivot = arr[middle];
+        int i = low, j = high;
+        while (i <= j) {    // make left < pivot and right > pivot
+            while (arr[i] < pivot) i++;
+            while (arr[j] > pivot) j--;
+            if (i <= j) {
+                swap(arr, i, j);
+                i++;
+                j--;
+            }
+        }
+        // 最后退出的情况应该是右指针在左指针左边一格
+        // recursively sort two sub parts
+        if (low < j) quickSort1(arr, low, j);
+        if (high > i) quickSort1(arr, i, high);
+    }
+    private static void swap(int[] a, int i, int j) {
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
 }
