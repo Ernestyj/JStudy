@@ -8,19 +8,12 @@ import java.util.*;
  * Created by Jian on 2015/7/28.
  */
 public class App {
-    private static final String MESSAGE="taobao";
-    public String name="abc";
-    static {
-        b = 5;
-    }
-    static int b = 9;
+
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
 
-        System.out.println(b);
 
     }
-
 
     private static void read(){
         Scanner in = new Scanner(System.in);
@@ -44,4 +37,3 @@ public class App {
         }
     }
 }
-
