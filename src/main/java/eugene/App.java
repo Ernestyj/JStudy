@@ -1,8 +1,6 @@
 package eugene;
 
-import java.io.*;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**Implement atoi to convert a string to an integer.
  Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
@@ -36,4 +34,6 @@ public class App {
             System.out.println();
         }
     }
+
+
 }
