@@ -10,6 +10,8 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
+        double x = 0.0;
+        System.out.println(Math.abs(x)<0.00001);
 
     }
 
@@ -34,6 +36,5 @@ public class App {
             System.out.println();
         }
     }
-
 
 }
