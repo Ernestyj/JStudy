@@ -12,7 +12,10 @@ public class App {
         System.out.println("*****RESULT*****");
         double x = 0.0;
         System.out.println(Math.abs(x)<0.00001);
-
+        ArrayList<String> list = new ArrayList<>();
+        Iterator<String> iterator = list.listIterator();
+        java.util.Collections collections;
+        HashMap<String, String> map;
     }
 
     private static void read(){
