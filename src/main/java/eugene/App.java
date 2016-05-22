@@ -1,5 +1,6 @@
 package eugene;
 
+import java.nio.charset.Charset;
 import java.util.*;
 
 /**Implement atoi to convert a string to an integer.
@@ -12,10 +13,15 @@ public class App {
         System.out.println("*****RESULT*****");
         double x = 0.0;
         System.out.println(Math.abs(x)<0.00001);
+
         ArrayList<String> list = new ArrayList<>();
         Iterator<String> iterator = list.listIterator();
         java.util.Collections collections;
         HashMap<String, String> map;
+        Queue<String> queue = new LinkedList<>();
+//        queue = Collections.unmodifiableCollection();
+        String defaultCharsetName = Charset.defaultCharset().displayName();
+        System.out.println("defaultCharsetName:"+defaultCharsetName);
     }
 
     private static void read(){
