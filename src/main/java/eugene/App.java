@@ -1,5 +1,8 @@
 package eugene;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.nio.charset.Charset;
 import java.util.*;
 
@@ -14,14 +17,13 @@ public class App {
         double x = 0.0;
         System.out.println(Math.abs(x)<0.00001);
 
-        ArrayList<String> list = new ArrayList<>();
-        Iterator<String> iterator = list.listIterator();
-        java.util.Collections collections;
-        HashMap<String, String> map;
-        Queue<String> queue = new LinkedList<>();
+//        ArrayList<String> list = new ArrayList<>();
+//        Iterator<String> iterator = list.listIterator();
+//        java.util.Collections collections;
+//        HashMap<String, String> map;
+//        Queue<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
-        String defaultCharsetName = Charset.defaultCharset().displayName();
-        System.out.println("defaultCharsetName:"+defaultCharsetName);
+
     }
 
     private static void read(){
@@ -45,5 +47,6 @@ public class App {
             System.out.println();
         }
     }
+
 
 }
