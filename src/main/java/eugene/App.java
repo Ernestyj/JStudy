@@ -17,7 +17,6 @@ public class App {
         double x = 0.0;
         System.out.println(Math.abs(x)<0.00001);
 
-        System.out.println(1<<1);
 
 //        ArrayList<String> list = new ArrayList<>();
 //        Iterator<String> iterator = list.listIterator();
