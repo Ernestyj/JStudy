@@ -19,6 +19,14 @@ public class App {
 
         System.out.println();
 
+        Point point1 = new Point(2,3);
+        Point point2 = new Point(-1,3);
+        double slope = (point1.y-point2.y)==0 ? 0.0 :
+                (1.0*(point1.y-point2.y))/(point1.x-point2.x);
+        double slope2 = (1.0*(point1.y-point2.y))/(point1.x-point2.x);
+
+        System.out.println(slope==slope2);
+
 //        ArrayList<String> list = new ArrayList<>();
 //        Iterator<String> iterator = list.listIterator();
 //        java.util.Collections collections;
@@ -26,6 +34,13 @@ public class App {
 //        Queue<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
 
+    }
+
+    static class Point {
+        int x;
+        int y;
+        Point() { x = 0; y = 0; }
+        Point(int a, int b) { x = a; y = b; }
     }
 
     private static void read(){
