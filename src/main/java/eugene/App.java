@@ -18,14 +18,11 @@ public class App {
         System.out.println(Math.abs(x)<0.00001);
 
         System.out.println();
+        String str = "x";
+        byte[] bytes = str.getBytes();
+        System.out.println(bytes.length);
 
-        Point point1 = new Point(2,3);
-        Point point2 = new Point(-1,3);
-        double slope = (point1.y-point2.y)==0 ? 0.0 :
-                (1.0*(point1.y-point2.y))/(point1.x-point2.x);
-        double slope2 = (1.0*(point1.y-point2.y))/(point1.x-point2.x);
 
-        System.out.println(slope==slope2);
 
 //        ArrayList<String> list = new ArrayList<>();
 //        Iterator<String> iterator = list.listIterator();
