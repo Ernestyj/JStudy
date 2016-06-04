@@ -22,6 +22,7 @@ public class App {
         byte[] bytes = str.getBytes();
         System.out.println(bytes.length);
 
+        System.out.println(Integer.MAX_VALUE);
 
 
 //        ArrayList<String> list = new ArrayList<>();

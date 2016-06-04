@@ -13,7 +13,7 @@ public class Permutation {
         String str[] = { "A" };
         printAllPermutations(str);
         System.out.println("\n Another******************");
-        printAllPermutations1("123");
+        printAllPermutations1("aa");
     }
 
     /**
