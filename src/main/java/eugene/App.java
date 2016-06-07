@@ -1,5 +1,7 @@
 package eugene;
 
+import javafx.beans.binding.ObjectExpression;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -12,34 +14,46 @@ import java.util.*;
  */
 public class App {
 
+
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
         double x = 0.0;
         System.out.println(Math.abs(x)<0.00001);
 
-        System.out.println();
-        String str = "x";
-        byte[] bytes = str.getBytes();
-        System.out.println(bytes.length);
-
-        System.out.println(Integer.MAX_VALUE);
-
+        print(new int[]{1,2,3});
+        f(1, 'C');
+        //f('C','a'); 报错对f的引用不明确
 
 //        ArrayList<String> list = new ArrayList<>();
 //        Iterator<String> iterator = list.listIterator();
 //        java.util.Collections collections;
-//        HashMap<String, String> map;
-//        Queue<String> queue = new LinkedList<>();
+        HashMap<String, String> map;
+        Queue<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
 
+        char s = 1;
+        float f = 2.5f;
+        //s = s+1;
+        s += 1;
+
     }
 
-    static class Point {
-        int x;
-        int y;
-        Point() { x = 0; y = 0; }
-        Point(int a, int b) { x = a; y = b; }
+    static void print(Object... args){
+        for (Object o: args){
+            System.out.print(o+" ");
+        }
+        System.out.println();
     }
+    static void f(float a, Character... args){
+        System.out.println(a);
+    }
+    static void f(char c, Character... args){
+        System.out.println(c);
+    }
+    static void f(Character... args){
+
+    }
+
 
     private static void read(){
         Scanner in = new Scanner(System.in);
