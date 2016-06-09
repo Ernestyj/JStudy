@@ -31,10 +31,12 @@ public class App {
         Queue<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
 
-        char s = 1;
-        float f = 2.5f;
-        //s = s+1;
-        s += 1;
+        char[] chars = new char[] {'\u0097'};
+        String str = new String(chars);
+        byte[] bytes = str.getBytes();
+        System.out.println(chars[0]);
+        System.out.println(Arrays.toString(bytes));
+
 
     }
 
