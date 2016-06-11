@@ -39,26 +39,5 @@ public class BestTimeToBuyAndSellStockIII {
         }
         return profit;
     }
-    //超时
-    public int maxProfit1(int[] prices) {
-        int len = prices.length;
-        int min = Integer.MAX_VALUE;
-        int preProfit = 0;
-        int postProfit = 0;
-        int profit = 0;
-        for (int k=0; k<len; k++){
-            for (int i=0; i<k; i++){
-                min = Math.min(min, prices[i]);
-                preProfit = Math.max(preProfit, prices[i]-min);
-            }
-            min = Integer.MAX_VALUE;
-            for (int j=k; j<len; j++){
-                min = Math.min(min, prices[j]);
-                postProfit = Math.max(postProfit, prices[j]-min);
-            }
-            profit = Math.max(profit, preProfit+postProfit);
-        }
-        return profit;
-    }
 
 }
