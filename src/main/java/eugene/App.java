@@ -31,12 +31,9 @@ public class App {
         Queue<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
 
-        char[] chars = new char[] {'\u0097'};
-        String str = new String(chars);
-        byte[] bytes = str.getBytes();
-        System.out.println(chars[0]);
-        System.out.println(Arrays.toString(bytes));
-
+        String[] parts = "".trim().split("\\s+");
+        System.out.println(parts.length);
+        System.out.println(parts[0]);
 
     }
 

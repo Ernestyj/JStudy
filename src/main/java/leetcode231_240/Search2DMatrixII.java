@@ -1,6 +1,7 @@
 package leetcode231_240;
 
-/**Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+/**Write an efficient algorithm that searches for a value in an m x n matrix.
+ This matrix has the following properties:
  Integers in each row are sorted in ascending from left to right.
  Integers in each column are sorted in ascending from top to bottom.
  For example, Consider the following matrix:
@@ -26,15 +27,15 @@ public class Search2DMatrixII {
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length, n = matrix[0].length;
         int i = 0, j = n-1;
-        boolean found = false;
         while (i<m && j>=0){
             if (matrix[i][j]==target){
-                found = true;
-                break;
-            }else if (matrix[i][j]<target) i++;
-            else j--;
+                return true;
+            }else if (matrix[i][j]<target)
+                i++;
+            else
+                j--;
         }
-        return found;
+        return false;
     }
 
 }
