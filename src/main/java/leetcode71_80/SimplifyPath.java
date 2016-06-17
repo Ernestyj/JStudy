@@ -2,6 +2,8 @@ package leetcode71_80;
 
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -9,18 +11,14 @@ import java.util.Stack;
  For example,
  path = "/home/", => "/home"
  path = "/a/./b/../../c/", => "/c"
+ Corner Cases:
+ Did you consider the case where path = "/../"?
+ In this case, you should return "/".
+ Another corner case is the path might contain multiple slashes '/' together, such as "/home//foo/".
+ In this case, you should ignore redundant slashes and return "/home/foo".
  * Created by DCLab on 12/23/2015.
  */
 public class SimplifyPath {
-
-    public static void main(String[] args) {
-//        String path = "/a/./b/../../c/";
-//        String path = "/home/";
-        String path = "/home//foo/";
-        System.out.println("*****RESULT*****");
-        System.out.println(new SimplifyPath().simplifyPath(path));
-    }
-
 
     public String simplifyPath(String path) {
         String[] strings = path.split("/");

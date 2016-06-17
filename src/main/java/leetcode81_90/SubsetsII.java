@@ -16,21 +16,6 @@ import java.util.List;
  */
 public class SubsetsII {
 
-    public static void main(String[] args){
-        int[] nums = {1, 2, 2};
-        System.out.println("*****RESULT*****");
-        //法一
-//        List<List<Integer>> res = new SubsetsII().subsetsWithDup(nums);
-        //法二
-        List<List<Integer>> res = new SubsetsII().subsetsWithDup1(nums);
-        //输出
-        for (List<Integer> ints : res){
-            for (Integer i : ints) System.out.print(i + " ");
-            System.out.println();
-        }
-    }
-
-
     // 位图法：与Subsets位图法思路一致，再添加判重部分即可
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
@@ -72,40 +57,6 @@ public class SubsetsII {
             backTrack(nums, i+1, result, sol);
             sol.remove(sol.size() - 1);
         }
-    }
-
-    //（有待细看）在原集合上添加数字构建子集的方法，参考http://www.programcreek.com/2013/01/leetcode-subsets-ii-java/
-    public List<List<Integer>> subsetsWithDup2(int[] nums) {
-        if (nums == null) return null;
-        Arrays.sort(nums);
-        List<List<Integer>> result = new ArrayList<>();
-        List<List<Integer>> prev = new ArrayList<>();
-        for (int i = nums.length-1; i >= 0; i--) {
-            //get existing sets
-            if (i == nums.length - 1 || nums[i] != nums[i + 1] || prev.size() == 0) {
-                prev = new ArrayList<>();
-                for (int j = 0; j < result.size(); j++) {
-                    prev.add(new ArrayList<>(result.get(j)));
-                }
-            }
-            //add current number to each element of the set
-            for (List<Integer> temp : prev) {
-                temp.add(0, nums[i]);
-            }
-            //add each single number as a set, only if current element is different with previous
-            if (i == nums.length - 1 || nums[i] != nums[i + 1]) {
-                ArrayList<Integer> temp = new ArrayList<>();
-                temp.add(nums[i]);
-                prev.add(temp);
-            }
-            //add all set created in this iteration
-            for (List<Integer> temp : prev) {
-                result.add(new ArrayList<>(temp));
-            }
-        }
-        //add empty set
-        result.add(new ArrayList<Integer>());
-        return result;
     }
 
 }
