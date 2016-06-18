@@ -22,8 +22,7 @@ public class MaximalRectangle {
         //实际上height可以分配一维数组存储
         int[][] height = new int[m][n+1]; //末尾多加一个dummy元素0
         int maxArea = 0;
-        //矩阵按行转化为柱状图
-        for (int i=0; i<m; i++) {
+        for (int i=0; i<m; i++) {//矩阵按行转化为柱状图
             for (int j=0; j<n; j++) {
                 if (matrix[i][j] == '0') {
                     height[i][j] = 0;
@@ -32,8 +31,7 @@ public class MaximalRectangle {
                 }
             }
         }
-        //计算每行柱状图的最大矩形面积
-        for (int i=0; i<m; i++) {
+        for (int i=0; i<m; i++) {//计算每行柱状图的最大矩形面积
             int area = maxAreaInHist(height[i]);
             if (area > maxArea) {
                 maxArea = area;

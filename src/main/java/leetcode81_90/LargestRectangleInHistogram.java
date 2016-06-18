@@ -13,11 +13,6 @@ import java.util.Stack;
  */
 public class LargestRectangleInHistogram {
 
-    public static void main(String[] args) {
-        System.out.println("*****RESULT*****");
-    }
-
-
     /**
      * 参考：http://www.cnblogs.com/lichen782/p/leetcode_Largest_Rectangle_in_Histogram.html
      * 方法1：维护一个栈，栈内只存高度递增的条形索引。这个动态栈的特点是：栈内元素一定比当前i指向的元素小。
