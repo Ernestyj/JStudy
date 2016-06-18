@@ -13,7 +13,7 @@ package leetcode321_330;
 public class CoinChange {
 
     /**https://leetcode.com/discuss/76217/java-both-iterative-recursive-solutions-with-explanations
-     * DP, 有点类似背包问题
+     * DP, 有点类似背包问题 d(i)=min{ d(i-vj)+1 }，其中i-vj >=0，vj表示第j个硬币的面值;
      * @param coins
      * @param amount
      * @return

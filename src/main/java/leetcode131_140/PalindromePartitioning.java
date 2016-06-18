@@ -23,7 +23,7 @@ public class PalindromePartitioning {
 
     /**
      * http://www.programcreek.com/2013/03/leetcode-palindrome-partitioning-java/
-     * 回溯法(DFS),当然DP也可以(可参考Palindrome Partitioning II).
+     * 回溯法(dfs),当然DP也可以(可参考Palindrome Partitioning II).
      * @param s
      * @return
      */
