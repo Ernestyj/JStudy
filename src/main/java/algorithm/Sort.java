@@ -7,7 +7,7 @@ public class Sort {
 
     public static void main(String[] args) {
 
-        int[] nums = {48, 6, 57, 42, 60, 72, 83, 73, 88, 85};
+        int[] nums = {48, 6, 57, 42, 60, 72, 83, 73, 88, 85, 6, 6, 6};
         System.out.println("*****RESULT*****");
 //        new Sort().quickSort(nums);
 //        for (int i : nums) System.out.print(i + " ");
@@ -122,47 +122,45 @@ public class Sort {
 
 class QuickSort {
     //http://www.algolist.net/Algorithms/Sorting/Quicksort
-    static int partition(int arr[], int left, int right) {
-        int i = left, j = right;
-        int pivot = arr[(left+right)/2];
-        while (i<=j) {
-            while (arr[i]<pivot) i++;
-            while (arr[j]>pivot) j--;
-            if (i<=j) {
-                swap(arr, i, j);
-                i++;
-                j--;
-            }
-        };
-        // 最后退出的情况应该是右指针在左指针左边一格
-        return i;
-    }
     static void quickSort(int arr[], int left, int right) {
         int index = partition(arr, left, right);
-        if (left < index-1) quickSort(arr, left, index - 1);  //TODO 注意边界
+        if (left < index-1) quickSort(arr, left, index-1);  //TODO 注意边界
         if (index < right) quickSort(arr, index, right);
     }
+    static int partition(int arr[], int left, int right) {
+        int l = left, r = right;
+        int pivot = arr[(left+right)/2];
+        while (l<=r) {
+            while (arr[l]<pivot) l++;
+            while (arr[r]>pivot) r--;
+            if (l<=r) {
+                swap(arr, l, r);
+                l++;
+                r--;
+            }
+        };// 最后退出的情况应该是右指针在左指针左边一格
+        return l;
+    }
+
 
     //合并版
     public static void quickSort1(int[] arr, int low, int high) {
         if (arr == null || arr.length == 0) return;
-        if (low >= high) return;
-        int middle = low + (high - low) / 2;    // pick the pivot
-        int pivot = arr[middle];
-        int i = low, j = high;
-        while (i <= j) {    // make left < pivot and right > pivot
-            while (arr[i] < pivot) i++;
-            while (arr[j] > pivot) j--;
-            if (i <= j) {
-                swap(arr, i, j);
-                i++;
-                j--;
+        int m = low + (high - low) / 2;    // pick the pivot
+        int pivot = arr[m];
+        int l = low, r = high;
+        while (l <= r) {    // make left < pivot and right > pivot
+            while (arr[l] < pivot) l++;
+            while (arr[r] > pivot) r--;
+            if (l <= r) {
+                swap(arr, l, r);
+                l++;
+                r--;
             }
-        }
-        // 最后退出的情况应该是右指针在左指针左边一格
+        } // 最后退出的情况应该是右指针在左指针左边一格
         // recursively sort two sub parts
-        if (low < j) quickSort1(arr, low, j);
-        if (high > i) quickSort1(arr, i, high);
+        if (low < r) quickSort1(arr, low, r);
+        if (high > l) quickSort1(arr, l, high);
     }
     private static void swap(int[] a, int i, int j) {
         int tmp = a[i];

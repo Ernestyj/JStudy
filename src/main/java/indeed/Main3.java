@@ -84,7 +84,7 @@ public class Main3 {
     }
 
     public static List<Vertex> getShortestPathTo(Vertex target) {
-        List<Vertex> path = new ArrayList<Vertex>();
+        List<Vertex> path = new ArrayList<>();
         for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
             path.add(vertex);
         Collections.reverse(path);
