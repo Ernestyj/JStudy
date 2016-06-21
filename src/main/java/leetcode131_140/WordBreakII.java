@@ -24,21 +24,21 @@ public class WordBreakII {
         return dfs(s, wordDict, new HashMap<>());
     }
     List<String> dfs(String s, Set<String> wordDict, HashMap<String, LinkedList<String>> map) {
-        if (map.containsKey(s)) return map.get(s);
-        LinkedList<String> res = new LinkedList<>();
-        if (s.length() == 0) {
-            res.add("");
-            return res;
+        if (map.containsKey(s)) return map.get(s);  //TODO 重复情况直接返回,提速
+        LinkedList<String> list = new LinkedList<>();
+        if (s.length() == 0) {  //TODO 便于末尾情况处理
+            list.add("");
+            return list;
         }
         for (String word : wordDict) {
             if (s.startsWith(word)) {
                 List<String> sublist = dfs(s.substring(word.length()), wordDict, map);
-                for (String sub: sublist)
-                    res.add(word + (sub.isEmpty()? "" : " ") + sub);
+                for (String w: sublist)
+                    list.add(word + (w.isEmpty()? "" : " ") + w);
             }
         }
-        map.put(s, res);
-        return res;
+        map.put(s, list);
+        return list;
     }
 
 

@@ -59,7 +59,7 @@ public class ShortestPalindrome {
     public String shortestPalindrome2(String s) {
         if (s.length()<=1) return s;
         char[] chars = s.toCharArray();
-        // the next array stores the failure function of each position.
+        // the children array stores the failure function of each position.
         int[] next = new int[chars.length];
         next[0] = -1;
         int i = 0, j = -1;
