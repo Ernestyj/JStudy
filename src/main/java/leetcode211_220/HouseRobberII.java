@@ -19,21 +19,21 @@ public class HouseRobberII {
         if (len==0) return 0;
         if (len==1) return nums[0];
         if (len==2) return Math.max(nums[0], nums[1]);
-        int[] s = new int[len];
+        int[] dp = new int[len];
         //剔除最后一个元素
-        s[0] = nums[0];
-        s[1] = Math.max(s[0], nums[1]); //TODO 易错
+        dp[0] = nums[0];
+        dp[1] = Math.max(dp[0], nums[1]); //TODO 易错
         for (int i=2; i<len-1; i++){
-            s[i] = Math.max(s[i-1], s[i-2]+nums[i]);
+            dp[i] = Math.max(dp[i-1], dp[i-2]+nums[i]);
         }
-        int temp = s[len-2];
+        int temp = dp[len-2];
         //剔除第一个元素
-        s[1] = nums[1];
-        s[2] = Math.max(s[1], nums[2]); //TODO 易错
+        dp[1] = nums[1];
+        dp[2] = Math.max(dp[1], nums[2]); //TODO 易错
         for (int i=3; i<len; i++){
-            s[i] = Math.max(s[i-1], s[i-2]+nums[i]);
+            dp[i] = Math.max(dp[i-1], dp[i-2]+nums[i]);
         }
-        return Math.max(temp, s[len-1]);
+        return Math.max(temp, dp[len-1]);
     }
 
 }
