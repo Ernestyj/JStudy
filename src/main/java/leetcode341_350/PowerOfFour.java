@@ -15,7 +15,7 @@ public class PowerOfFour {
      */
     public boolean isPowerOfFour(int num) {
         //TODO return num>0 && 1073741824%num==0 无法排除2的情况
-        return num>0 && (num&(num-1))==0 && (num-1)%3==0;
+        return num>0 && (num&(num-1))==0 && (num-1)%3==0;   //还要检测2的幂
     }
 
     public boolean isPowerOfFour1(int num) {

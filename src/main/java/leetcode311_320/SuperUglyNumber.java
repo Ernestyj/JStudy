@@ -27,12 +27,10 @@ public class SuperUglyNumber {
         uglys[0] = 1;
         for (int i=1; i<n; i++){
             uglys[i] = Integer.MAX_VALUE;
-            for (int j=0; j<k; j++){
+            for (int j=0; j<k; j++)
                 uglys[i] = Math.min(uglys[i], uglys[idx[j]]*primes[j]);
-            }
-            for (int j=0; j<k; j++){
-                if (uglys[idx[j]]*primes[j]==uglys[i]) idx[j]++;
-            }
+            for (int j=0; j<k; j++)
+                if (uglys[i]==uglys[idx[j]]*primes[j]) idx[j]++;
         }
         return uglys[n-1];
     }

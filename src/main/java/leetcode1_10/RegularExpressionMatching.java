@@ -34,7 +34,7 @@ public class RegularExpressionMatching {
      * @param p
      * @return
      */
-    public boolean isMatch1(String s, String p) {
+    public boolean isMatch(String s, String p) {
         if (s == null || p == null) return false;
         boolean[][] dp = new boolean[s.length()+1][p.length()+1];
         dp[0][0] = true;
@@ -67,7 +67,7 @@ public class RegularExpressionMatching {
      * @param p
      * @return
      */
-    public boolean isMatch(String s, String p) {
+    public boolean isMatch1(String s, String p) {
         if (p.length() == 0) {
             return s.length() == 0;
         }

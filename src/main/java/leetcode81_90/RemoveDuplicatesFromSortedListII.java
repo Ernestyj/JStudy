@@ -18,7 +18,6 @@ public class RemoveDuplicatesFromSortedListII {
     }
 
     /**
-     * TODO 第一次尝试，思路不清晰导致代码无法继续写
      * 遍历中探测当前节点的下两个节点
      * http://www.programcreek.com/2014/06/leetcode-remove-duplicates-from-sorted-list-ii-java/
      * @param head
