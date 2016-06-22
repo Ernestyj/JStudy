@@ -31,9 +31,7 @@ public class App {
         Queue<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
 
-        String[] parts = "".trim().split("\\s+");
-        System.out.println(parts.length);
-        System.out.println(parts[0]);
+        System.out.println(Math.pow(4,15));
 
     }
 
