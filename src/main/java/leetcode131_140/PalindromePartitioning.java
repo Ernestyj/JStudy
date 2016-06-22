@@ -11,16 +11,6 @@ import java.util.List;
  */
 public class PalindromePartitioning {
 
-    public static void main(String[] args) {
-        List<List<String>> result = new PalindromePartitioning().partition("amanaplanacanalpanama");
-        for (List<String> list : result){
-            for (String s : list){
-                System.out.print(s + " ");
-            }
-            System.out.println();
-        }
-    }
-
     /**
      * http://www.programcreek.com/2013/03/leetcode-palindrome-partitioning-java/
      * 回溯法(dfs),当然DP也可以(可参考Palindrome Partitioning II).

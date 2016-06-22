@@ -26,20 +26,20 @@ public class FirstBadVersion {
      */
     public class Solution extends VersionControl {
         //简洁
-        public int firstBadVersion1(int n) {
+        public int firstBadVersion(int n) {
             int l = 1, r = n;
             int m = 0;
-            while (l<r){    //TODO 注意不是l<=r
+            while (l<=r){
                 m = l+(r-l)/2;
                 if (isBadVersion(m)){
-                    r = m;
+                    r = m-1;
                 } else
                     l = m+1;
             }
             return l;
         }
 
-        public int firstBadVersion(int n) {
+        public int firstBadVersion1(int n) {
             int l = 1, r = n;
             int m = 0;
             int result = n;

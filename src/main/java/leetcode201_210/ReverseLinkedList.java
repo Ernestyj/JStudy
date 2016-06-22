@@ -17,9 +17,9 @@ public class ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
         if(head==null || head.next==null) return head;
         ListNode second = head.next;    //pin the second node
-        head.next = null;   //TODO set first's next to be null
         ListNode rest = reverseList(second);
         second.next = head;
+        head.next = null;   //TODO set first's next to be null
         return rest;
     }
 
