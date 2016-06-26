@@ -1,6 +1,7 @@
 package leetcode71_80;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,32 +13,21 @@ import java.util.List;
  */
 public class Combinations {
 
-    public static void main(String[] args){
-        System.out.println("*****RESULT*****");
-        Combinations instance = new Combinations();
-        instance.combine(4, 2);
-        for (List<Integer> ints : instance.result){
-            for (Integer i : ints) System.out.print(i + " ");
-            System.out.println();
-        }
-    }
-
-
-    private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> temp = new ArrayList<>();
     public List<List<Integer>> combine(int n, int k) {
-        if (n == 0 || k == 0) return result;
-        backTrack(n, k, 1);
-        return result;
+        List<List<Integer>> res = new LinkedList<>();
+        if (n==0 || k==0) return res;
+        dfs(n, k, 1, res, new LinkedList<>());
+        return res;
     }
-    private void backTrack(int n, int k, int start){
-        if (k == 0){
-            result.add(new ArrayList<>(temp));
+    private void dfs(int n, int k, int start, List<List<Integer>> res, List<Integer> sol){
+        if(sol.size()==k){
+            res.add(new LinkedList<>(sol));
+            return;
         }
-        for (int i=start; i<=n; i++){
-            temp.add(i);
-            backTrack(n, k - 1, i + 1);
-            temp.remove(temp.size()-1);
+        for(int i=start; i<=n; i++){
+            sol.add(i);
+            dfs(n, k, i+1, res, sol);
+            sol.remove(sol.size()-1);
         }
     }
 

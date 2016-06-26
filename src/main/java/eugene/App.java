@@ -28,11 +28,16 @@ public class App {
 //        Iterator<String> iterator = list.listIterator();
 //        java.util.Collections collections;
         HashMap<String, String> map;
-        Queue<String> queue = new LinkedList<>();
+        LinkedList<String> queue = new LinkedList<>();
 //        queue = Collections.unmodifiableCollection();
+        ArrayDeque q = new ArrayDeque();
+        //q.add(null);
+        queue.add(null);
 
-        System.out.println(Math.pow(4,15));
-
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Long.MAX_VALUE);
+        System.out.println((long)Integer.MAX_VALUE*Integer.MAX_VALUE);
+        System.out.println((long)Integer.MAX_VALUE*Integer.MAX_VALUE<Long.MAX_VALUE);
     }
 
     static void print(Object... args){
