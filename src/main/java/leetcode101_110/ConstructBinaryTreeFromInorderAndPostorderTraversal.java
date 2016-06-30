@@ -4,7 +4,7 @@ package leetcode101_110;
  Note: You may assume that duplicates do not exist in the tree.
  * Created by eugene on 16/1/26.
  */
-public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
+public class ConstructBinaryTreeFromInorderAndPostorderTraversal {//TODO 无重复
 
     //Definition for a binary tree node.
     public static class TreeNode {
@@ -21,9 +21,6 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
      * 示例:
      in-order:   4 2 5 (1) 6 7 3 8
      post-order: 4 5 2  6 7 8 3  (1)
-     * @param inorder
-     * @param postorder
-     * @return
      */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         return rebuild(postorder, inorder, 0, postorder.length-1, 0, inorder.length-1);

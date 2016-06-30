@@ -23,12 +23,12 @@ public class BitOperation {
 
     public static int maxInt(){
         return (1 << 31) - 1;
-//        return ~(1 << 31);
-//        return (1 << -1) - 1;
+        //return ~(1 << 31);
+        //return (1 << -1) - 1;
     }
     public static int minInt(){
         return 1 << 31;
-//        return 1 << -1;
+        //return 1 << -1;
     }
 
     public static long maxLong(){
@@ -46,16 +46,13 @@ public class BitOperation {
         return m << n;
     }
     public static int factorialOfTwo(int n){
-//        return 2 << (n - 1);
+        //return 2 << (n - 1);
         return 1 << n;
     }
 
-    /**
-     * 求整数的二进制表示中有多少个 1
+    /**求整数的二进制表示中有多少个 1
      * 思路：应用了n&=(n-1)能将 n 的二进制表示中的最右边的 1 翻转为 0 的事实。只需要不停地执行 n&=(n-1)，
      * 直到 n 变成 0 为止，那么翻转的次数就是原来的 n 的二进制表示中 1 的个数
-     * @param n
-     * @return
      */
     public static int oneBitsCount(int n){
         int count = 0;

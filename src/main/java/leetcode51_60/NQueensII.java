@@ -1,7 +1,6 @@
 package leetcode51_60;
 
-/**
- * Follow up for N-Queens problem.
+/**Follow up for N-Queens problem.
  Now, instead outputting board configurations, return the total number of distinct solutions.
  * Created by Eugene on 12/5/2015.
  */

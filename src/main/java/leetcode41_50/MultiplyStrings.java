@@ -2,23 +2,18 @@ package leetcode41_50;
 
 import java.math.BigInteger;
 
-/**
- * Given two numbers represented as strings, return multiplication of the numbers as a string.
+/**Given two numbers represented as strings, return multiplication of the numbers as a string.
  Note: The numbers can be arbitrarily large and are non-negative.
  * Created by DCLab on 11/26/2015.
  */
 public class MultiplyStrings {
 
-    /**
-     * http://www.cnblogs.com/TenosDoIt/p/3735309.html
+    /**http://www.cnblogs.com/TenosDoIt/p/3735309.html
      * 从个位起,我们把每一位相乘，得到一个没有进位的临时结果，然后把临时结果从低位起依次进位。
      * 对于一个m位整数乘以n位整数的结果，最多只有m+n位。
-     * @param num1
-     * @param num2
-     * @return
      */
     public String multiply(String num1, String num2) {
-        if (num1.equals("0") || num2.equals("0")) return "0";
+        if (num1.equals("0") || num2.equals("0")) return "0";   //TODO 不能漏
         char[] l = new StringBuilder(num1).reverse().toString().toCharArray();
         char[] r = new StringBuilder(num2).reverse().toString().toCharArray();
         int[] nums = new int[l.length + r.length];

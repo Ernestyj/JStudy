@@ -34,50 +34,23 @@ public class App {
         //q.add(null);
         queue.add(null);
 
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Long.MAX_VALUE);
-        System.out.println((long)Integer.MAX_VALUE*Integer.MAX_VALUE);
-        System.out.println((long)Integer.MAX_VALUE*Integer.MAX_VALUE<Long.MAX_VALUE);
+        System.out.println(3*0.1);
+        System.out.println(new Double(3*0.1).compareTo(0.3));
+
     }
 
-    static void print(Object... args){
-        for (Object o: args){
-            System.out.print(o+" ");
-        }
+    private static void print(Object... args) {
+        for (Object o: args) System.out.print(o+" ");
         System.out.println();
     }
+
     static void f(float a, Character... args){
         System.out.println(a);
     }
     static void f(char c, Character... args){
         System.out.println(c);
     }
-    static void f(Character... args){
-
-    }
-
-
-    private static void read(){
-        Scanner in = new Scanner(System.in);
-        int m = in.nextInt();
-        int n = in.nextInt();
-        System.out.println(m + " " + n);
-        in.nextLine();
-        char[][] grids = new char[m][n];
-        for (int i=0; i<m; i++){
-            String line = in.nextLine();
-            System.out.println(line);
-            for (int j=0; j<n; j++){
-                grids[i][j] = Character.valueOf(line.charAt(j));
-            }
-        }
-        for (int i=0; i<m; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(grids[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
+    static void f(Character... args){ }
 
 }
+class A extends Object{}
