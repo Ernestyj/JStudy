@@ -11,16 +11,12 @@ public class ZigZagConversion {
 
     /**https://leetcode.com/discuss/10493/easy-to-understand-java-solution
      * 简洁易懂
-     * @param s
-     * @param nRows
-     * @return
      */
     public String convert(String s, int nRows) {
         char[] c = s.toCharArray();
-        int len = c.length;
+        int len = c.length, k = 0;
         StringBuffer[] sb = new StringBuffer[nRows];
         for (int i = 0; i < sb.length; i++) sb[i] = new StringBuffer();
-        int k = 0;
         while (k < len) {
             for (int i=0; i<nRows && k<len; i++) // vertically down
                 sb[i].append(c[k++]);

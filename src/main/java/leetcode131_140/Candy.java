@@ -9,13 +9,10 @@ package leetcode131_140;
  */
 public class Candy {
 
-    /**
-     * 涉及相邻元素问题,类似Trapping Rain Water,总体思路也是从左从右双向遍历.
+    /**涉及相邻元素问题,类似Trapping Rain Water,总体思路也是从左从右双向遍历.
      * 贪心:只要遇到更大的相邻值,则可以加一;但要总数最小,则需按升序来加一.
      首先从左向右遍历,升序加一;再从右向左遍历,升序加一.
      http://www.programcreek.com/2014/03/leetcode-candy-java/
-     * @param ratings
-     * @return
      */
     public int candy(int[] ratings) {
         int[] candies = new int[ratings.length];

@@ -31,9 +31,7 @@ public class SingleNumberII {
         for (int i=31; i>=0; i--){
             int sum = 0;
             int mask = 1<<i;
-            for (int j=0; j<nums.length; j++){
-                if ((nums[j] & mask) != 0) sum++;
-            }
+            for(int n: nums) if((n&mask)!=0) sum++;
             result = (result<<1) + sum%3;
         }
         return result;

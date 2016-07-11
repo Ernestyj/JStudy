@@ -1,7 +1,6 @@
 package leetcode51_60;
 
-/**
- * Given an array of non-negative integers, you are initially positioned at the first index of the array.
+/**Given an array of non-negative integers, you are initially positioned at the first index of the array.
  Each element in the array represents your maximum jump length at that position.
  Determine if you are able to reach the last index.
  For example:
@@ -15,8 +14,6 @@ public class JumpGame {
      * 注意与Jump Game II的区别。
      * 如果采用DP（复杂度为O(n^2)，大数据测试用例将无法通过。
      * 贪心思路：（复杂度O(n)）
-     * @param nums
-     * @return
      */
     public boolean canJump(int[] nums) {
         int maxReach = 0;

@@ -13,8 +13,7 @@ public class SortColors {
     //1-pass every elem left low pointer is 0, elem right high pointer is 2
     public void sortColors(int[] nums) {
         if(nums==null || nums.length<2) return;
-        int l = 0;
-        int r = nums.length-1;
+        int l = 0, r = nums.length-1;
         for(int i=0; i<=r; ) {
             if(nums[i]==0) { // swap nums[i] and nums[l] and i,l both ++
                 swap(nums, i, l);

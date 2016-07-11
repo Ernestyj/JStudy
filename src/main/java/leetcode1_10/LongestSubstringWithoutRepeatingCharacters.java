@@ -5,9 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Given a string, find the length of the longest substring without repeating characters.
- *
+/**Given a string, find the length of the longest substring without repeating characters.
  * For example, the longest substring without repeating letters for "abcabcbb" is "abc",
  * which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
  * Created by DCLab on 11/22/2015.
@@ -16,8 +14,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     /**https://leetcode.com/discuss/23883/11-line-simple-java-solution-o-n-with-explanation
      * 简洁清晰,滑动窗口法O(n),借助HashMap
-     * @param s
-     * @return
      */
     public int lengthOfLongestSubstring(String s) {
         if (s.length()==0) return 0;

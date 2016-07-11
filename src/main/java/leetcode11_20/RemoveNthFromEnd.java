@@ -1,15 +1,9 @@
 package leetcode11_20;
 
-/**
- * Given a linked list, remove the nth node from the end of list and return its head.
-
- For example,
- Given linked list: 1->2->3->4->5, and n = 2.
+/**Given a linked list, remove the nth node from the end of list and return its head.
+ For example, Given linked list: 1->2->3->4->5, and n = 2.
  After removing the second node from the end, the linked list becomes 1->2->3->5.
-
  Note: Given n will always be valid. Try to do this in one pass.
- *
- * Created by DCLab on 11/2/2015.
  */
 public class RemoveNthFromEnd {
 
@@ -29,13 +23,11 @@ public class RemoveNthFromEnd {
         for(int i=1; i<=n+1; i++) { //TODO 注意边界
             fast = fast.next;
         }
-        //Move fast to the end, maintaining the gap
-        while(fast != null) {
+        while(fast != null) {//Move fast to the end, maintaining the gap
             slow = slow.next;
             fast = fast.next;
         }
-        //Skip the desired node
-        slow.next = slow.next.next;
+        slow.next = slow.next.next;//Skip the desired node
         return dummy.next;
     }
 

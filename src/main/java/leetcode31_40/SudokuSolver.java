@@ -1,37 +1,32 @@
 package leetcode31_40;
 
-/**
- * Write a program to solve a Sudoku puzzle by filling the empty cells.
+/**Write a program to solve a Sudoku puzzle by filling the empty cells.
  Empty cells are indicated by the character '.'.
  You may assume that there will be only one unique solution.
- *
  * Created by DCLab on 11/20/2015.
  */
 public class SudokuSolver {
 
-    /**
-     * 回溯法 TODO 注意此回溯法的特点
+    /**回溯法 TODO 注意此回溯法的特点
      * 和Valid Sudoku这题相比，此题中的输入是合法的。这样用回溯法我们只要检查新加入的值
      * 能否在行、列以及小方块里有效即可，没有必要检查整个矩阵。
      * http://www.cnblogs.com/panda_lin/archive/2013/11/04/sudoku_solver.html
-     * @param board
      */
     public void solveSudoku(char[][] board) {
-        dfs(board);
+        solve(board);
     }
-    private boolean dfs(char[][] board){
+    private boolean solve(char[][] board){
         for (int r=0; r<9; ++r) {
             for (int c=0; c<9; ++c) {
-                if (board[r][c]=='.'){
-                    for (char ch='1'; ch<='9'; ch++){
-                        board[r][c] = ch;
-                        if (isValidSudoku(board, r, c)){    //限制条件
-                            if (dfs(board)) return true;
-                        }
-                        board[r][c] = '.';
+                if (board[r][c]!='.') continue;
+                for (char ch='1'; ch<='9'; ch++){
+                    board[r][c] = ch;
+                    if (isValidSudoku(board, r, c)){    //限制条件
+                        if (solve(board)) return true;
                     }
-                    return false;
+                    board[r][c] = '.';
                 }
+                return false;
             }
         }
         return true;
@@ -45,8 +40,8 @@ public class SudokuSolver {
         for (c = 0; c<9; ++c) {   // Same value in the same r?
             if ((y!=c) && (board[x][c]==board[x][y])) return false;
         }
-        for (r = (x/3)*3; r < (x/3+1)*3; ++r) {   // Same value in the 3 * 3 block it belong to?
-            for (c = (y/3)*3; c < (y/3+1)*3; ++c) {
+        for (r = (x/3)*3; r < x/3*3+3; ++r) {   // Same value in the 3 * 3 block it belong to?
+            for (c = (y/3)*3; c < y/3*3+3; ++c) {
                 if ((x!=r) && (y!=c) && (board[r][c]==board[x][y])) return false;
             }
         }

@@ -2,16 +2,12 @@ package leetcode51_60;
 
 import java.util.List;
 
-/**
- * Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
- For example,
- Given n = 3,
+/**Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+ For example, Given n = 3,
  You should return the following matrix:
- [
- [ 1, 2, 3 ],
+ [ [ 1, 2, 3 ],
  [ 8, 9, 4 ],
- [ 7, 6, 5 ]
- ]
+ [ 7, 6, 5 ] ]
  * Created by Eugene on 12/12/2015.
  */
 public class SpiralMatrixII {
@@ -20,9 +16,7 @@ public class SpiralMatrixII {
     public int[][] generateMatrix(int n){
         int[][] res = new int[n][n];
         n -= 1;
-        int m = n;
-        int r = 0, c = 0;   //begin
-        int k = 1;
+        int m = n, r = 0, c = 0, k = 1;
         while (r<=m && c<=n){
             for (int j=c; j<=n; j++) res[r][j] = k++;
             r++;

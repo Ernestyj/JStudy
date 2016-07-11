@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class App {
 
-
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
         double x = 0.0;
@@ -34,8 +33,8 @@ public class App {
         //q.add(null);
         queue.add(null);
 
-        System.out.println(3*0.1);
-        System.out.println(new Double(3*0.1).compareTo(0.3));
+        System.out.println(" ".split(" ").length);
+        System.out.println(Integer.MAX_VALUE);
 
     }
 
@@ -51,6 +50,7 @@ public class App {
         System.out.println(c);
     }
     static void f(Character... args){ }
+
 
 }
 class A extends Object{}

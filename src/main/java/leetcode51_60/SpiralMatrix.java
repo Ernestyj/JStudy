@@ -7,11 +7,9 @@ import java.util.List;
  * Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
  For example,
  Given the following matrix:
- [
- [ 1, 2, 3 ],
+ [ [ 1, 2, 3 ],
  [ 4, 5, 6 ],
- [ 7, 8, 9 ]
- ]
+ [ 7, 8, 9 ] ]
  You should return [1,2,3,6,9,8,7,4,5].
  * Created by DCLab on 12/7/2015.
  */
@@ -19,14 +17,11 @@ public class SpiralMatrix {
 
     /**https://leetcode.com/discuss/12228/super-simple-and-easy-to-understand-solution
      * 此思路不易出错
-     * @param matrix
-     * @return
      */
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
         if (matrix.length == 0) return res;
-        int m = matrix.length-1, n = matrix[0].length-1;    //end
-        int r = 0, c = 0;   //begin
+        int m = matrix.length-1, n = matrix[0].length-1, r = 0, c = 0;
         while (r<=m && c<=n) {
             for (int j = c; j <= n; j++) res.add(matrix[r][j]);// Traverse Right
             r++;

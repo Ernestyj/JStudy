@@ -13,8 +13,6 @@ public class SortList {
 
     /**
      * O(nlogn)可以采用快速排序/归并排序/堆排序,对于链表用归并排序方便(配合合并两个有序链表).
-     * @param head
-     * @return
      */
     public ListNode sortList(ListNode head) {
         return mergeSort(head);
@@ -23,8 +21,7 @@ public class SortList {
         if (head==null || head.next==null) return head;
         ListNode slow = head;
         ListNode fast = head;
-        //TODO fast.next.next!=null不能漏
-        while (fast!=null && fast.next!=null && fast.next.next!=null){
+        while (fast.next != null && fast.next.next != null){
             slow = slow.next;
             fast = fast.next.next;
         }

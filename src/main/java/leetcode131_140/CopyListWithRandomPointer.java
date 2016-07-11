@@ -23,9 +23,8 @@ public class CopyListWithRandomPointer {
         if (head==null) return null;
         Map<RandomListNode, RandomListNode> map = new HashMap<>();
         RandomListNode newHead = new RandomListNode(head.label);
-        RandomListNode p = head;
-        RandomListNode q = newHead;
         map.put(head, newHead);
+        RandomListNode p = head, q = newHead;
         p = p.next;
         while (p!=null){
             RandomListNode newNode = new RandomListNode(p.label);
@@ -34,8 +33,7 @@ public class CopyListWithRandomPointer {
             q = newNode;
             p = p.next;
         }
-        p = head;
-        q = newHead;
+        p = head; q = newHead;
         while (p!=null){
             if (p.random!=null) q.random = map.get(p.random);
             p = p.next;

@@ -4,21 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * You are given a string, s, and a list of words,
+/**You are given a string, s, and a list of words,
  * words, that are all of the same length.
  * Find all starting indices of substring(s) in s that is a concatenation of each word in words
  * exactly once and without any intervening characters.
  * 注意：words中的word可以重复
-
- For example, given:
- s: "barfoothefoobarman"
- words: ["foo", "bar"]
+ For example, given: s: "barfoothefoobarman" words: ["foo", "bar"]
  You should return the indices: [0,9]. (order does not matter).
- *
  * Created by DCLab on 11/13/2015.
  */
-public class SubstringWithConcatenationOfAllWords { //TODO HARD 待重看
+public class SubstringWithConcatenationOfAllWords { //TODO HARD
 
     //较慢方法
     public static List<Integer> findSubstring(String s, String[] words) {
@@ -35,11 +30,10 @@ public class SubstringWithConcatenationOfAllWords { //TODO HARD 待重看
                     int count = copy.get(str);
                     if (count == 1) copy.remove(str);
                     else copy.put(str, count - 1);
-                    if (copy.isEmpty()) { // matches
-                        res.add(i);
-                        break;
-                    }
                 } else break; // not in words
+                if (copy.isEmpty()) { // matches
+                    res.add(i); break;
+                }
             }
         }
         return res;

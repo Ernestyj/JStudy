@@ -3,10 +3,8 @@ package leetcode31_40;
 import java.util.HashMap;
 import java.util.HashSet;
 
-/**
- * Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
+/**Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
  The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
- *
  * Created by DCLab on 11/19/2015.
  */
 public class ValidSudoku {

@@ -21,13 +21,9 @@ public class SearchInsertPosition {
         int m = 0;
         while (l<=r){
             m = l+(r-l)/2;
-            if (target<nums[m]){
-                r = m-1;
-            } else if (nums[m]<target){
-                l = m+1;
-            } else {
-                return m;
-            }
+            if (target<nums[m]) r = m-1;
+            else if (nums[m]<target) l = m+1;
+            else return m;
         }// 如果没有找到目标元素，那么l一定停在恰好比target大的index上,r一定停在恰好比target小的index上
         return l;
     }

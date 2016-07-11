@@ -5,9 +5,7 @@ import java.util.HashMap;
 /**
  * Given a string S and a string T, find the minimum window in S which will contain
  * all the characters in T in complexity O(n).
- For example,
- S = "ADOBECODEBANC"
- T = "ABC"
+ For example, S = "ADOBECODEBANC", T = "ABC"
  Minimum window is "BANC".
  Note: If there is no such window in S that covers all characters in T, return the empty string "".
  If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
@@ -19,29 +17,22 @@ public class MinimumWindowSubstring {
      * TODO 此法可作为substring类题目解答模板
      * 简洁. 双指针，动态维护一个区间。尾指针不断往后扫，当扫到有一个窗口包含了所有T的字符后，
      然后再收缩头指针，直到不能再收缩为止。最后记录所有可能的情况中窗口最小的。
-     * @param s
-     * @param t
-     * @return
      */
     public String minWindow(String s, String t) {
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
+        char[] S = s.toCharArray(), T = t.toCharArray();
         int[] map = new int[256];
-        int j = 0, i = 0;
-        int count = tArr.length;
-        int minLen = Integer.MAX_VALUE;
-        int minI = 0;
-        for(char c: tArr) map[c]++;
+        int j = 0, i = 0, count = T.length, minLen = Integer.MAX_VALUE, minI = 0;
+        for(char c: T) map[c]++;
         while(j<s.length()) {
-            if(map[sArr[j]]>0) count--; //in t
-            map[sArr[j]]--; //TODO 此行不能移入上述if块
+            if(map[S[j]]>0) count--; //in t
+            map[S[j]]--; //TODO 此行不能移入上述if块
             while(count==0) {   //valid
                 if((j-i+1) < minLen) {  //update min len and min start
                     minLen = j-i+1;
                     minI = i;
                 }
-                map[sArr[i]]++;
-                if(map[sArr[i]]>0) count++; //make it invalid 收缩
+                map[S[i]]++;
+                if(map[S[i]]>0) count++; //make it invalid 收缩
                 i++;
             }
             j++;

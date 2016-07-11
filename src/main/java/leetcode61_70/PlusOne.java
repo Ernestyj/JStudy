@@ -3,23 +3,15 @@ package leetcode61_70;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Given a non-negative number represented as an array of digits, plus one to the number.
+/**Given a non-negative number represented as an array of digits, plus one to the number.
  The digits are stored such that the most significant digit is at the head of the list.
  大数加1
  * Created by DCLab on 12/19/2015.
  */
 public class PlusOne {
 
-    public static void main(String[] args) {
-        System.out.println("*****RESULT*****");
-        System.out.println();
-    }
-
     /**https://leetcode.com/discuss/58149/my-simple-java-solution
      * 简洁, 巧妙
-     * @param digits
-     * @return
      */
     public int[] plusOne(int[] digits) {
         int n = digits.length;

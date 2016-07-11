@@ -18,18 +18,18 @@ public class LetterCombinationsOfPhoneNumber {
 
     //简洁, 广度(队列) https://leetcode.com/discuss/24431/my-java-solution-with-fifo-queue
     public List<String> letterCombinations(String digits) {
-        LinkedList<String> queue = new LinkedList<>();
-        if (digits==null || digits.length()==0) return queue;
-        queue.add("");
+        LinkedList<String> q = new LinkedList<>();
+        if (digits==null || digits.length()==0) return q;
+        q.add("");
         for(int i=0; i<digits.length(); i++){
             int k = Character.getNumericValue(digits.charAt(i));
-            while(queue.peek().length()==i){
-                String old = queue.remove();
+            while(q.peek().length()==i){
+                String old = q.remove();
                 for(char c : mapping[k].toCharArray())
-                    queue.offer(old+c);
+                    q.offer(old+c);
             }
         }
-        return queue;
+        return q;
     }
 
     //易于理解(速度稍微更快),广度

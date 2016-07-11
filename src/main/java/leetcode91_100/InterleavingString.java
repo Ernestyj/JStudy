@@ -2,19 +2,12 @@ package leetcode91_100;
 
 /**Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
  For example,
- Given:
- s1 = "aabcc",
- s2 = "dbbca",
+ Given:s1 = "aabcc",s2 = "dbbca",
  When s3 = "aadbbcbcac", return true.
  When s3 = "aadbbbaccc", return false.
  * Created by eugene on 16/1/17.
  */
 public class InterleavingString {
-
-    public static void main(String[] args) {
-        System.out.println("*****RESULT*****");
-    }
-
 
     /**http://fisherlei.blogspot.in/2012/12/leetcode-interleaving-string.html
      * 二维动态规划:matched[l1][l2]表示s1取l1长度，s2取l2长度，是否能匹配s3的l1+12长度。
@@ -25,10 +18,6 @@ public class InterleavingString {
             s3[j-1]!=s2[j-1], matched[0][j] = false;
      j=0时，s3[i-1]==s1[i-1], matched[i][0] = matched[i-1][0]
             s3[i-1]!=s1[i-1], matched[i][0] = false;
-     * @param s1
-     * @param s2
-     * @param s3
-     * @return
      */
     public boolean isInterleave(String s1, String s2, String s3) {
         int len1 = s1.length(), len2 = s2.length(), len3 = s3.length();

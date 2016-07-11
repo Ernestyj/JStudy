@@ -1,7 +1,6 @@
 package leetcode31_40;
 
-/**
- * Implement next permutation, which rearranges numbers into the lexicographically
+/**Implement next permutation, which rearranges numbers into the lexicographically
  next greater permutation of numbers.
  If such arrangement is not possible, it must rearrange it as the lowest possible order
  (ie, sorted in ascending order).
@@ -15,7 +14,6 @@ package leetcode31_40;
  1,2,3 → 1,3,2
  3,2,1 → 1,2,3
  1,1,5 → 1,5,1
- *
  * Created by DCLab on 11/14/2015.
  */
 public class NextPermutation {
@@ -32,13 +30,10 @@ public class NextPermutation {
      ex. 3 6 4 2
          4 6 3 2 (step1 swap)
          4 2 3 6 (step2 reverse)
-     * @param nums
      */
     public static void nextPermutation(int[] nums) {
-        if (nums==null) return;
-        int len = nums.length;
-        if (len<=1) return;
-        int i = 0;
+        if (nums==null || nums.length<=1) return;
+        int len = nums.length, i = 0;
         if (nums[len-1]>nums[len-2]){ //pn最右端的2个元素构成一个增序子序列
             swap(nums, len-1, len-2);
             return;

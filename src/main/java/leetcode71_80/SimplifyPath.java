@@ -25,22 +25,15 @@ public class SimplifyPath {
         Stack<String> stack = new Stack<>();
         for (int i=1; i<strings.length; i++){
             String s = strings[i];
-            if (s.length() != 0){
-                if (s.equals(".")){
-                }else if (s.equals("..")){
-                    if (!stack.isEmpty()) stack.pop();
-                }else {
-                    stack.push(strings[i]);
-                }
-            }
+            if (s.length() == 0) continue;
+            if (s.equals(".")) ;
+            else if (s.equals("..")) { if (!stack.isEmpty()) stack.pop(); }//TODO 加大括号
+            else stack.push(strings[i]);
         }
         if (stack.isEmpty()) return "/";
-        else {
-            StringBuilder builder = new StringBuilder();
-            Object[] array = stack.toArray();
-            for (Object o : array) builder.append("/" + o);
-            return builder.toString();
-        }
+        StringBuilder builder = new StringBuilder();
+        for (Object o : stack.toArray()) builder.append("/" + o);
+        return builder.toString();
     }
 
 }

@@ -19,7 +19,7 @@ public class LinkedListCycleII {
 
     /**
      * http://fisherlei.blogspot.co.id/2013/11/leetcode-linked-list-cycle-ii-solution.html
-     * 假设链表有环，环长Y，环以外的长度是X。快慢两指针从起点出发,最后相遇在K处,设环起到到K处长度为K.
+     * 假设链表有环，环长Y，环以外的长度是X。快慢两指针从起点出发,最后相遇在K处,设环起点到K处长度为K.
      有Y-K=X,意思是两指针相遇后再走X就回到了环的起点.
      * @param head
      * @return

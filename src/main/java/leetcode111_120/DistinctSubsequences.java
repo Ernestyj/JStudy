@@ -15,9 +15,6 @@ public class DistinctSubsequences {
      边界条件:S,T均为空串,W(0,0)=1;
      仅S为空串,W(0,j)=0;
      仅T为空串,W(i,0)=1;
-     * @param s
-     * @param t
-     * @return
      */
     public int numDistinct(String s, String t) {
         int lenS = s.length(), lenT = t.length();
