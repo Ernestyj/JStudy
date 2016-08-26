@@ -6,14 +6,14 @@ package algorithm;
 public class Sort {
 
     public static void main(String[] args) {
-
         int[] nums = {48, 6, 57, 42, 60, 72, 83, 73, 88, 85, 6, 6, 6};
         System.out.println("*****RESULT*****");
 //        new Sort().quickSort(nums);
 //        for (int i : nums) System.out.print(i + " ");
-        QuickSort.quickSort(nums, 0, nums.length-1);
+//        QuickSort.quickSort(nums, 0, nums.length-1);
+//        for (int i : nums) System.out.print(i + " ");
+        new Sort().insertionSort(nums);
         for (int i : nums) System.out.print(i + " ");
-
 //        int[] result = new Sort().mergeSort(nums);
 //        for (int i : result) System.out.print(i + " ");
     }
@@ -103,7 +103,7 @@ public class Sort {
      * @param nums
      * @return
      */
-    public int[] insertionSort(int[] nums){
+    public int[] insertionSort1(int[] nums){
         for (int i=1; i<nums.length; i++){
             if (nums[i-1]>nums[i]){
                 int temp = nums[i];
@@ -117,7 +117,18 @@ public class Sort {
         }
         return nums;
     }
+    public int[] insertionSort(int[] nums) {
+        for (int i=1; i<nums.length; i++)
+            for (int j=i; j>0 && nums[j-1]>nums[j]; j--) swap(nums, j-1, j);
+        return nums;
+    }
 
+
+    private static void swap(int[] a, int i, int j) {
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
 }
 
 class QuickSort {

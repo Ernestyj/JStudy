@@ -32,10 +32,12 @@ public class App {
         ArrayDeque q = new ArrayDeque();
         //q.add(null);
         queue.add(null);
+        PriorityQueue<Integer> qs = new PriorityQueue<>();
 
         System.out.println(" ".split(" ").length);
         System.out.println(Integer.MAX_VALUE);
 
+        System.out.println(System.getProperty("user.dir"));
     }
 
     private static void print(Object... args) {
@@ -51,6 +53,6 @@ public class App {
     }
     static void f(Character... args){ }
 
-
 }
-class A extends Object{}
+
+
