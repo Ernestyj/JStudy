@@ -5,7 +5,9 @@ import javafx.beans.binding.ObjectExpression;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.math.BigDecimal;
 import java.nio.charset.Charset;
+import java.text.NumberFormat;
 import java.util.*;
 
 /**Implement atoi to convert a string to an integer.
@@ -32,12 +34,11 @@ public class App {
         ArrayDeque q = new ArrayDeque();
         //q.add(null);
         queue.add(null);
-        PriorityQueue<Integer> qs = new PriorityQueue<>();
 
         System.out.println(" ".split(" ").length);
-        System.out.println(Integer.MAX_VALUE);
-
-        System.out.println(System.getProperty("user.dir"));
+        System.out.println(Double.compare(1.61-1.6, 0.01));
+        System.out.println(new BigDecimal("1.61").subtract(new BigDecimal("1.6")).toString());
+        System.out.println(new Object());
     }
 
     private static void print(Object... args) {
@@ -53,6 +54,6 @@ public class App {
     }
     static void f(Character... args){ }
 
+
 }
-
-
+class A extends Object{}
