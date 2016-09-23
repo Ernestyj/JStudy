@@ -16,13 +16,28 @@ public class FlattenBinaryTreeToLinkedList {
         TreeNode(int x) { val = x; }
     }
 
+    public void flatten(TreeNode root) {
+        if (root == null) return;
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.left = null;
+
+        flatten(left);
+        flatten(right);
+
+        root.right = left;
+        TreeNode cur = root;
+        while (cur.right != null) cur = cur.right;
+        cur.right = right;
+    }
+
 
     private TreeNode prev = null;
     /**
      * https://leetcode.com/discuss/30719/my-short-post-order-traversal-java-solution-for-share
      * @param root
      */
-    public void flatten(TreeNode root) {
+    public void flatten0(TreeNode root) {
         if (root == null) return;
         flatten(root.right);
         flatten(root.left);
