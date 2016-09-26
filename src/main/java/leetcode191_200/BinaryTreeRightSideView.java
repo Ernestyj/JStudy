@@ -18,7 +18,40 @@ public class BinaryTreeRightSideView {
         TreeNode(int x) { val = x; }
     }
 
+    //Core idea: 1.Each depth of the tree only select one node. 2.View depth is current size of result list.
     public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        rightView(root, result, 0);
+        return result;
+    }
+    public void rightView(TreeNode curr, List<Integer> result, int currDepth){
+        if(curr == null) return;
+        if(currDepth == result.size()) result.add(curr.val);
+
+        rightView(curr.right, result, currDepth + 1);
+        rightView(curr.left, result, currDepth + 1);
+    }
+
+    //单队列
+    public List<Integer> rightSideView1(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if(root == null) return result;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(queue.size()>0){
+            int size = queue.size();    //get size here
+            for(int i=0; i<size; i++){
+                TreeNode top = queue.remove();
+                if(i==0) result.add(top.val);   //the first element in the queue (right-most of the tree)
+                if(top.right!=null) queue.add(top.right);
+                if(top.left!=null) queue.add(top.left);
+            }
+        }
+        return result;
+    }
+
+    //双队列
+    public List<Integer> rightSideView2(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root==null) return result;
         Queue<TreeNode> q = new LinkedList<>();
@@ -33,32 +66,6 @@ public class BinaryTreeRightSideView {
                 if (!qNext.isEmpty()){
                     q = new LinkedList<>(qNext);
                     qNext = new LinkedList<>();
-                }
-            }
-        }
-        return result;
-    }
-
-    //速度优化
-    public List<Integer> rightSideView1(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        if(root == null) return result;
-        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.add(root);
-        while(queue.size() > 0){
-            //get size here
-            int size = queue.size();
-            for(int i=0; i<size; i++){
-                TreeNode top = queue.remove();
-                //the first element in the queue (right-most of the tree)
-                if(i==0){
-                    result.add(top.val);
-                }
-                if(top.right != null){
-                    queue.add(top.right);
-                }
-                if(top.left != null){
-                    queue.add(top.left);
                 }
             }
         }
