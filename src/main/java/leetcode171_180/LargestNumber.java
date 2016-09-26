@@ -26,30 +26,10 @@ public class LargestNumber {
             }
         };
         Arrays.sort(numS, comp);
-        if(numS[numS.length-1].charAt(0)=='0') return "0";
+        if(numS[numS.length-1].charAt(0)=='0') return "0";  //用例[0, 0]
         StringBuilder sb = new StringBuilder();
         for(String s: numS) sb.insert(0, s);    //降序
         return sb.toString();
-    }
-
-    //拼接待比较的两个数o1与o2，s1=o1+o2，s2=o2+o1，从s1、s2的最高位开始比较。
-    public String largestNumber1(int[] nums) {
-        if (nums.length==1) return String.valueOf(nums[0]);
-        List<String> list = new ArrayList<>();
-        for (int i : nums) list.add(String.valueOf(i));
-        list.sort(new Comparator<String>() {    //升序
-            @Override
-            public int compare(String o1, String o2) {
-                String s1 = o1+o2;
-                String s2 = o2+o1;
-                return s1.compareTo(s2);
-            }
-        });
-        StringBuilder builder = new StringBuilder();
-        for (int i=list.size()-1; i>=0; i--) builder.append(list.get(i));   //降序
-        String result = builder.toString();
-        if (result.charAt(0)=='0') return "0";  //用例[0, 0]
-        return result;
     }
 
 }
