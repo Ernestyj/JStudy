@@ -24,8 +24,7 @@ public class FractionToRecurringDecimal {
         StringBuilder res = new StringBuilder();
         if ((numerator<0) ^ (denominator<0)) res.append("-");
         long num = numerator, den = denominator;    //TODO 使用long防止溢出
-        num = Math.abs(num);
-        den = Math.abs(den);
+        num = Math.abs(num); den = Math.abs(den);
         // integral part
         res.append(num/den);
         num %= den;
