@@ -1,34 +1,29 @@
 package onlinealgo;
 
-import java.util.Scanner;
+import java.util.*;
 
-/**
- * Created by eugene on 16/8/2.
- */
 public class Main2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        int target = in.nextInt();
         int n = in.nextInt();
-        int m = in.nextInt();
-        char[][] matrix = new char[n][m];
+        int[] nums = new int[n];
         for (int i=0; i<n; i++){
-            String line = in.nextLine();
-            for (int j=0; j<m; j++){
-                matrix[i][j] = line.charAt(j);
-            }
+            nums[i] = in.nextInt();
         }
-        int startX = in.nextInt();
-        int startY = in.nextInt();
-        int k = in.nextInt();
-        int[][] steps = new int[k][2];
-        for (int i=0; i<k; i++){
-            steps[k][0] = in.nextInt();
-            steps[k][1] = in.nextInt();
-        }
+//        int res = Arrays.binarySearch(nums, target);
+        int res = binarySearch(nums, target);
+        System.out.println(res);
     }
-    static int local = 0, max = 0;
-    public static void maze(int n, int m, char[][] matrix, int startX, int startY, int k, int[][] steps){
-
-
+    public static int binarySearch(int[] nums, int target){
+        int l = 0, r = nums.length - 1;
+        int m = 0;
+        while (l <= r){
+            m = (l + r) / 2;
+            if (target < nums[m]) r = m - 1;
+            else if (nums[m] < target) l = m + 1;
+            else return m;  //target == nums[m]
+        }
+        return -(l+1);
     }
 }

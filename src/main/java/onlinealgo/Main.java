@@ -60,25 +60,4 @@ public class Main {
         return res;
     }
 
-    public static void main1(){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] nums = new int[n];
-        for(int i = 0; i<n; i++){
-            nums[i] = sc.nextInt();
-        }
-        int res = maxSubArray(nums);
-        System.out.println(res);
-    }
-    public static int maxSubArray(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
-        int len = nums.length;
-        int local = nums[0];
-        int global = nums[0];
-        for (int k = 1; k < len; k++){
-            local = Math.max(local+nums[k], nums[k]);
-            global = Math.max(local, global);
-        }
-        return global;
-    }
 }
