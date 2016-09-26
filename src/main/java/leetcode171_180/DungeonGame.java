@@ -13,8 +13,7 @@ public class DungeonGame {
      */
     //另一种风格
     public int calculateMinimumHP(int[][] dungeon) {
-        int m = dungeon.length;
-        int n = dungeon[0].length;
+        int m = dungeon.length, n = dungeon[0].length;
         int[][] hp = new int[m][n];
         hp[m-1][n-1] = 1-dungeon[m-1][n-1];
         if (hp[m-1][n-1]<1) hp[m-1][n-1] = 1;
@@ -37,6 +36,7 @@ public class DungeonGame {
         }
         return hp[0][0];
     }
+
     //OJ速度更快
     public int calculateMinimumHP1(int[][] dungeon) {
         int m = dungeon.length;

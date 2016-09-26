@@ -16,8 +16,7 @@ public class LargestNumber {
     public  String largestNumber(int[] nums) {
         if(nums==null || nums.length==0) return "";
         String[] numS = new String[nums.length];
-        for(int i=0; i<nums.length; i++)
-            numS[i] = nums[i]+"";
+        for(int i=0; i<nums.length; i++) numS[i] = nums[i]+"";
         Comparator<String> comp = new Comparator<String>(){ //升序
             @Override
             public int compare(String str1, String str2){
@@ -27,11 +26,9 @@ public class LargestNumber {
             }
         };
         Arrays.sort(numS, comp);
-        if(numS[numS.length-1].charAt(0)=='0')
-            return "0";
+        if(numS[numS.length-1].charAt(0)=='0') return "0";
         StringBuilder sb = new StringBuilder();
-        for(String s: numS)
-            sb.insert(0, s);    //降序
+        for(String s: numS) sb.insert(0, s);    //降序
         return sb.toString();
     }
 
