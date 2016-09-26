@@ -4,7 +4,7 @@ package leetcode171_180;
  Note: Your solution should be in logarithmic time complexity.
  * Created by eugene on 16/3/20.
  */
-public class FactorialTrailingZeroes {
+public class  FactorialTrailingZeroes {
 
     /**http://www.danielbit.com/blog/puzzle/leetcode/leetcode-factorial-trailing-zeroes
      * 需要统计阶乘质因子的(2,5)对的个数，因为2×5=10.很容易观察到质因子中2的个数总是大于等于5的个数,因此只要计数5的个数就可以了。
