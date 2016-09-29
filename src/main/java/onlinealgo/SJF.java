@@ -2,7 +2,7 @@ package onlinealgo;
 
 import java.util.*;
 
-/**
+/**未完成有错版本
  * Created by eugene on 16/4/8.
  */
 public class SJF {
