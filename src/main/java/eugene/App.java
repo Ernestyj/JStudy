@@ -21,6 +21,13 @@ public class App {
 
         System.out.println(Math.round(12F));//float 返回int, double 返回long
 
+        byte a = 127, b = 127;
+        //b = a + b; // error : cannot convert from int to byte
+        b += a; // ok
+
+        System.out.println((Integer)127 == (Integer)127);
+        System.out.println((Integer)128 != (Integer)128);
+
     }
 
     private static void print(Object... args) {
