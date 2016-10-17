@@ -17,7 +17,7 @@ public class ReverseBits {
         for (int i=0; i<32; i++) {
             result += n&1;
             n >>= 1;
-            if (i<31) result <<= 1; //注意最后一位不移
+            if (i!=31) result <<= 1; //注意最后一位不移
         }
         return result;
     }

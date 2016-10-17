@@ -15,21 +15,18 @@ public class ContainsDuplicateIII {
     /**
      * O(nlog(k)),借助TreeSet维护窗口k
      * http://www.programcreek.com/2014/06/leetcode-contains-duplicate-iii-java/
-     * @param nums
-     * @param k
-     * @param t
-     * @return
      */
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (k < 1 || t < 0) return false;
         TreeSet<Integer> set = new TreeSet<>();
         for (int i=0; i<nums.length; i++) {
-            int n = nums[i];
-            if ((set.floor(n)!=null && n-set.floor(n)<=t)
-                    || (set.ceiling(n)!=null && set.ceiling(n)-n<=t))
+            int x = nums[i];
+            //写成x-set.floor(x)<=t可能会溢出,注意边界用例 [-1,2147483647] 1 2147483647
+            if ((set.floor(x)!=null && x<=set.floor(x)+t)
+                    || (set.ceiling(x)!=null && x>=set.ceiling(x)-t))
                 return true;
-            set.add(n);
-            if (i>=k) set.remove(nums[i-k]);
+            set.add(x);
+            if (set.size()>k) set.remove(nums[i-k]);
         }
         return false;
     }

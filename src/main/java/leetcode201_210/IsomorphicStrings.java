@@ -29,19 +29,19 @@ public class IsomorphicStrings {
         return true;
     }
 
-    //普通方法,哈希+集合
+    //普通方法,哈希
+    //https://discuss.leetcode.com/topic/14158/java-solution-using-hashmap
     public boolean isIsomorphic1(String s, String t) {
-        Map<Character, Character> map = new HashMap<>();
-        Set<Character> set = new HashSet<>();
-        for (int i=0; i<s.length(); i++){
-            char c1 = s.charAt(i), c2 = t.charAt(i);
-            if (!map.containsKey(c1)) {
-                if (!set.contains(c2)) {
-                    map.put(c1, c2);
-                    set.add(c2);
-                } else return false;
-            } else {
-                if (map.get(c1)!=c2) return false;
+        if(s == null || s.length() <= 1) return true;
+        HashMap<Character, Character> map = new HashMap<>();
+        for(int i = 0 ; i< s.length(); i++){
+            char a = s.charAt(i), b = t.charAt(i);
+            if(map.containsKey(a)){
+                if(map.get(a).equals(b)) continue;
+                else return false;
+            }else{
+                if(!map.containsValue(b)) map.put(a,b);
+                else return false;
             }
         }
         return true;

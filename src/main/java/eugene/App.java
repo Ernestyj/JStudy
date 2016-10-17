@@ -1,6 +1,7 @@
 package eugene;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 /**
  * Created by Jian on 2015/7/28.
@@ -27,6 +28,7 @@ public class App {
 
         System.out.println((Integer)127 == (Integer)127);
         System.out.println((Integer)128 != (Integer)128);
+
 
     }
 
