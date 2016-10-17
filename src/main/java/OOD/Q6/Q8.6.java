@@ -1,4 +1,4 @@
-/*
+package OOD.Q6;/*
 Implement a jigsaw puzzle. Design the data structures and explain an algorithm to solve the puzzle. 
 You can assume that you have a fits With method which, when passed two puzzle pieces, returns true 
 if the two pieces belong together.
@@ -65,9 +65,3 @@ class Jigsaw {
 	}
 }
 
-class Solution {
-	public static void main(String[] args) {
-		Jigsaw game = new Jigsaw(20, 25);
-		game.play();
-	}
-}
