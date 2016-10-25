@@ -6,7 +6,7 @@ import java.util.*;
  * http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Graph/dfs.html
  * Created by eugene on 16/9/26.
  */
-public class SearchGraph {
+public class TraverseGraph {
     /* ------------------------------------------
        Data structure used to represent a graph
        ------------------------------------------ */
@@ -19,13 +19,13 @@ public class SearchGraph {
     /* -------------------------------
        Construct a graph of n nodes
        ------------------------------- */
-    SearchGraph(int n) {
+    TraverseGraph(int n) {
         numNodes = n;
         adjMatrix = new int[n][n];
         visited = new boolean[n];
     }
 
-    SearchGraph(int[][] mat) {
+    TraverseGraph(int[][] mat) {
         numNodes = mat.length;
         adjMatrix = new int[numNodes][numNodes];
         visited = new boolean[numNodes];
@@ -113,7 +113,7 @@ public class SearchGraph {
                         { 0, 1, 1, 0, 0, 0, 0, 0, 0 },  // 7
                         { 1, 0, 0, 0, 1, 0, 0, 0, 0 } };// 8
 
-        SearchGraph graph = new SearchGraph(conn);
+        TraverseGraph graph = new TraverseGraph(conn);
         System.out.println("*****DFS(Recursive)*****");
         graph.dfs(graph.rootNode);
         graph.clearVisited();
