@@ -13,7 +13,7 @@ public class SingleNumberIII {
 
     /**
      * http://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/72983
-     * 先将所有的数异或，得到的将是x和y以后之后的值xy。
+     * 先将所有的数异或，得到的将是x和y异或之后的值xy。
      找到xy为1的某一位（为了方便就取最右边为1的一位，取法为xy & ~(xy-1)，
      再将这一位为1的所有数异或得到x，剩下的所有数异或得到y。
      * @param nums
