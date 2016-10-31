@@ -30,9 +30,15 @@ public class App {
         System.out.println((Integer)127 == (Integer)127);
         System.out.println((Integer)128 != (Integer)128);
 
+        new App().loader();
 
         System.out.println();
 
+    }
+
+    private void loader(){
+        //App.class.getClass()... 会报null异常
+        System.out.println(this.getClass().getClassLoader().getResource("").toString());
     }
 
     private static void print(Object... args) {
