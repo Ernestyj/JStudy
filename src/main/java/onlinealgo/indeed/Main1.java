@@ -1,4 +1,4 @@
-package indeed;
+package onlinealgo.indeed;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,5 +1,6 @@
 package eugene;
 
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -9,7 +10,8 @@ public class Test {
 
     public static void main(String[] args) {
         System.out.println("*****RESULT*****");
-        System.out.println(Integer.MAX_VALUE);
+
+        System.out.println();
 
     }
 

@@ -1,4 +1,4 @@
-package indeed;
+package onlinealgo.indeed;
 
 import java.math.BigInteger;
 import java.util.*;
